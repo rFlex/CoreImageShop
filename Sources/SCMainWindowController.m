@@ -135,7 +135,7 @@
 
 - (void)setFileUrl:(NSURL *)fileUrl {
     _fileUrl = fileUrl;
-    self.window.title = fileUrl.lastPathComponent;
+    self.window.title = fileUrl.lastPathComponent.stringByDeletingPathExtension;
 }
 
 - (void)rebuildFilterPipeline {

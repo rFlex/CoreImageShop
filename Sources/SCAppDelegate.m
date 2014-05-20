@@ -83,6 +83,8 @@
     if (_displayedWindow != nil) {
         SCMainWindowController *displayedWindow = _displayedWindow;
         NSSavePanel *savePanel = [NSSavePanel savePanel];
+        [savePanel setExtensionHidden:YES];
+        savePanel.allowedFileTypes = @[@"cisf"];
         
         [savePanel beginWithCompletionHandler:^(NSInteger result) {
             if (result == NSOKButton) {
@@ -145,6 +147,8 @@
 
 - (void)openDocument:(id)sender {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    openPanel.allowedFileTypes = @[@"cisf"];
+    [openPanel setExtensionHidden:YES];
     
     [openPanel beginWithCompletionHandler:^(NSInteger result) {
         if (result == NSOKButton) {

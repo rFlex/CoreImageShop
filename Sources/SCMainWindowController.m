@@ -11,9 +11,11 @@
 #import "SCMediaDisplayerView.h"
 #import "SCFilterConfiguratorWindowController.h"
 #import "SCFilterTranslator.h"
+#import "SCAppDelegate.h"
 
 @interface SCMainWindowController () {
     NSMutableArray *_currentlyDisplayedVC;
+    NSArray *_availableFilters;
 }
 
 @end
@@ -26,8 +28,33 @@
     if (self) {
         _filterGroup = [[SCFilterGroup alloc] init];
         _currentlyDisplayedVC = [NSMutableArray new];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filtersChanged:) name:kFilterDescriptionsChangedNotification object:nil];
+        [self updateForFilterDescriptions:[SCAppDelegate sharedInstance].filterDescriptions];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)filtersChanged:(NSNotification *)notification {
+    [self updateForFilterDescriptions:notification.object];
+}
+
+- (void)updateForFilterDescriptions:(SCFilterDescriptionList *)filterDescriptions {
+    NSMutableArray *availableFilters = [NSMutableArray new];
+    
+    for (NSString *category in filterDescriptions.allCategories) {
+        [availableFilters addObject:[SCFilterTranslator categoryName:category]];
+        for (SCFilterDescription *filter in [filterDescriptions filterDescriptionsForCategory:category]) {
+            [availableFilters addObject:filter];
+        }
+    }
+    
+    _availableFilters = availableFilters;
+    
+    [self.availableFiltersTableView reloadData];
 }
 
 - (void)windowDidLoad {
@@ -166,18 +193,51 @@
     [self.filtersTableView endUpdates];
 }
 
+- (IBAction)addActivated:(id)sender {
+    NSInteger index = [self.availableFiltersTableView rowForView:sender];
+    SCFilterDescription *filterDescription = [_availableFilters objectAtIndex:index];
+    
+    [self addFilter:[SCFilter filterWithFilterDescription:filterDescription]];
+}
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return _filterGroup.filters.count;
+    if (tableView == self.filtersTableView) {
+        return _filterGroup.filters.count;
+    } else {
+        return _availableFilters.count;
+    }
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    SCFilterView *filterView = [tableView makeViewWithIdentifier:@"SCFilterView" owner:self];
-    SCFilter *filter = [_filterGroup.filters objectAtIndex:row];
-    
-    filterView.title.stringValue = [SCFilterTranslator filterName:filter.filterDescription.name];
-    filterView.enabledCheckbox.state = (NSInteger)filter.enabled;
-    
-    return filterView;
+    if (tableView == self.filtersTableView) {
+        SCFilterView *filterView = [tableView makeViewWithIdentifier:@"SCFilterView" owner:self];
+        SCFilter *filter = [_filterGroup.filters objectAtIndex:row];
+        
+        filterView.title.stringValue = [SCFilterTranslator filterName:filter.filterDescription.name];
+        filterView.enabledCheckbox.state = (NSInteger)filter.enabled;
+        
+        return filterView;
+    } else {
+        id object = [_availableFilters objectAtIndex:row];
+        
+        NSTableCellView *view = nil;
+        
+        NSString *text = nil;
+        
+        if ([object isKindOfClass:[NSString class]]) {
+            view = [tableView makeViewWithIdentifier:@"Category" owner:self];
+            text = object;
+        } else {
+            view = [tableView makeViewWithIdentifier:@"Filter" owner:self];
+            SCFilterDescription *filterDescription = object;
+            text = [SCFilterTranslator filterName:filterDescription.name];
+            text = [NSString stringWithFormat:@"  %@", text];
+        }
+        
+        view.textField.stringValue = text;
+        
+        return view;
+    }
 }
 
 - (NSArray *)filters {

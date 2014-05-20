@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSURL *fileUrl;
 @property (readonly, nonatomic) NSData *documentData;
 @property (strong, nonatomic) SCFilterGroup *filterGroup;
+@property (weak) IBOutlet NSTableView *availableFiltersTableView;
 
 - (void)addFilter:(SCFilter *)filter;
 - (void)removeFilter:(SCFilter *)filter;

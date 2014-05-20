@@ -31,6 +31,7 @@
 {
     [super windowDidLoad];
 
+    self.window.title = [NSString stringWithFormat:@"%@ Configuration", [SCFilterTranslator filterName:self.filter.filterDescription.name]];
     [self adjustTableSize];
 }
 

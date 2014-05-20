@@ -88,7 +88,6 @@
             if (result == NSOKButton) {
                 [self save:displayedWindow to:savePanel.URL];
             }
-            
         }];
     }
 }
@@ -106,7 +105,6 @@
             return;
         }
     }
-
     
     SCMainWindowController *mainViewController = [[SCMainWindowController alloc] initWithWindowNibName:@"SCMainWindowController"];
     mainViewController.window.delegate = self;
@@ -222,6 +220,8 @@
         
         [self.filtersMenu insertItem:categoryMenuItem atIndex:index++];
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kFilterDescriptionsChangedNotification object:descriptionFilter];
 }
 
 - (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {
@@ -315,4 +315,13 @@
         [self openFilterDescriptions:_filterDescriptionURL];        
     }
 }
+
+- (SCFilterDescriptionList *)filterDescriptions {
+    return _filterDescriptions;
+}
+
++ (SCAppDelegate *)sharedInstance {
+    return (SCAppDelegate *)[NSApplication sharedApplication].delegate;
+}
+
 @end

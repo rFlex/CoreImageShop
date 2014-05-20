@@ -14,7 +14,7 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <window title="Box Blur Configuration" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="1003" y="527" width="480" height="600"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
@@ -25,7 +25,7 @@
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="66" horizontalPageScroll="10" verticalLineScroll="66" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="tGe-ue-uSJ">
                         <rect key="frame" x="-1" y="7" width="482" height="594"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <clipView key="contentView" id="46T-Qc-RGh">
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="46T-Qc-RGh">
                             <rect key="frame" x="1" y="1" width="480" height="592"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -33,7 +33,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="480" height="592"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
                                         <tableColumn width="477" minWidth="40" maxWidth="1000" id="nGd-jL-ShS">
@@ -212,8 +212,179 @@
                                                         <outlet property="valueTextField" destination="XJY-sd-O9w" id="J0J-cS-STU"/>
                                                     </connections>
                                                 </tableCellView>
-                                                <tableCellView identifier="CIAttributeTypePosition" id="Jwa-KS-Bun" customClass="SCPositionCellView">
+                                                <tableCellView identifier="CIAttributeTypeCount" id="0Rg-vG-amQ" customClass="SCDistanceCellView">
                                                     <rect key="frame" x="1" y="265" width="477" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <slider verticalHuggingPriority="750" id="h0l-vW-qP0">
+                                                            <rect key="frame" x="13" y="10" width="384" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="eJq-Z7-t0p"/>
+                                                            <connections>
+                                                                <action selector="valueChanged:" target="0Rg-vG-amQ" id="swo-6n-I7a"/>
+                                                            </connections>
+                                                        </slider>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="mYL-TU-7Es">
+                                                            <rect key="frame" x="1" y="39" width="475" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="CIAttributeTypeCount" id="aup-h8-1gw">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <textField verticalHuggingPriority="750" id="vlt-ef-6hZ">
+                                                            <rect key="frame" x="414" y="9" width="53" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="369-zJ-lqw">
+                                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="tmu-Xa-sjX">
+                                                                    <metadata>
+                                                                        <real key="inspectorSampleValue" value="1"/>
+                                                                    </metadata>
+                                                                </numberFormatter>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <action selector="textFieldValueChanged:" target="0Rg-vG-amQ" id="kHE-mP-blb"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
+                                                    <connections>
+                                                        <outlet property="titleTextField" destination="mYL-TU-7Es" id="eFc-Sy-r9k"/>
+                                                        <outlet property="valueSlider" destination="h0l-vW-qP0" id="O0u-df-W51"/>
+                                                        <outlet property="valueTextField" destination="vlt-ef-6hZ" id="6ZU-Gb-ze0"/>
+                                                    </connections>
+                                                </tableCellView>
+                                                <tableCellView identifier="CIAttributeTypeRectangle" id="cq8-aQ-s1S" customClass="SCRectangleCellView">
+                                                    <rect key="frame" x="1" y="331" width="477" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="57Q-A2-3Hv">
+                                                            <rect key="frame" x="1" y="39" width="475" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="CIAttributeTypeRectangle" id="pOA-T7-asH">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="b61-aS-RUY">
+                                                            <rect key="frame" x="13" y="9" width="28" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="awp-8j-uCZ"/>
+                                                            <connections>
+                                                                <action selector="valueChanged:" target="cq8-aQ-s1S" id="A1b-qK-SOf"/>
+                                                            </connections>
+                                                        </slider>
+                                                        <textField verticalHuggingPriority="750" id="5l4-wj-oBV">
+                                                            <rect key="frame" x="47" y="13" width="53" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="fFO-Dv-agR">
+                                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="hKt-aG-YUG">
+                                                                    <metadata>
+                                                                        <real key="inspectorSampleValue" value="1"/>
+                                                                    </metadata>
+                                                                </numberFormatter>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <action selector="textFieldValueChanged:" target="cq8-aQ-s1S" id="2FX-Oh-FpD"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="buc-Lx-dFa">
+                                                            <rect key="frame" x="137" y="9" width="28" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="6Qw-Ow-0Ib"/>
+                                                            <connections>
+                                                                <action selector="valueChanged:" target="cq8-aQ-s1S" id="qIs-cK-lZA"/>
+                                                            </connections>
+                                                        </slider>
+                                                        <textField verticalHuggingPriority="750" id="5yH-Ic-OF2">
+                                                            <rect key="frame" x="170" y="13" width="53" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="3EO-uu-EV1">
+                                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="FYa-m3-7fS">
+                                                                    <metadata>
+                                                                        <real key="inspectorSampleValue" value="1"/>
+                                                                    </metadata>
+                                                                </numberFormatter>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <action selector="textFieldValueChanged:" target="0Rg-vG-amQ" id="BA7-42-M8t"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="A6s-Pn-FU7">
+                                                            <rect key="frame" x="262" y="9" width="28" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="b8p-rM-UCX"/>
+                                                            <connections>
+                                                                <action selector="valueChanged:" target="cq8-aQ-s1S" id="vkf-Jd-LwV"/>
+                                                            </connections>
+                                                        </slider>
+                                                        <textField verticalHuggingPriority="750" id="Iut-vP-Gcu">
+                                                            <rect key="frame" x="295" y="13" width="53" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="UUJ-X9-6dO">
+                                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="Qmr-co-aU6">
+                                                                    <metadata>
+                                                                        <real key="inspectorSampleValue" value="1"/>
+                                                                    </metadata>
+                                                                </numberFormatter>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <action selector="textFieldValueChanged:" target="cq8-aQ-s1S" id="n0s-VM-nND"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="cQh-Tf-MXs">
+                                                            <rect key="frame" x="380" y="9" width="28" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <sliderCell key="cell" continuous="YES" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" allowsTickMarkValuesOnly="YES" sliderType="circular" id="y0J-oK-is9"/>
+                                                            <connections>
+                                                                <action selector="valueChanged:" target="cq8-aQ-s1S" id="p4N-z4-JUH"/>
+                                                            </connections>
+                                                        </slider>
+                                                        <textField verticalHuggingPriority="750" id="LjK-wj-eMX">
+                                                            <rect key="frame" x="413" y="13" width="53" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="YBX-yw-jXZ">
+                                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="hTt-zk-aiE">
+                                                                    <metadata>
+                                                                        <real key="inspectorSampleValue" value="1"/>
+                                                                    </metadata>
+                                                                </numberFormatter>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <action selector="textFieldValueChanged:" target="cq8-aQ-s1S" id="7qJ-Yb-STN"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
+                                                    <connections>
+                                                        <outlet property="titleTextField" destination="57Q-A2-3Hv" id="IyQ-FM-ghB"/>
+                                                        <outlet property="value1" destination="b61-aS-RUY" id="Ue9-rw-Fwh"/>
+                                                        <outlet property="value2" destination="buc-Lx-dFa" id="QHL-dv-FMx"/>
+                                                        <outlet property="value3" destination="A6s-Pn-FU7" id="fVG-9f-cOR"/>
+                                                        <outlet property="value4" destination="cQh-Tf-MXs" id="2dO-cc-egT"/>
+                                                        <outlet property="valueTextField1" destination="5l4-wj-oBV" id="aE1-st-Z51"/>
+                                                        <outlet property="valueTextField2" destination="5yH-Ic-OF2" id="cJr-hO-ybo"/>
+                                                        <outlet property="valueTextField3" destination="Iut-vP-Gcu" id="tpb-j6-TlD"/>
+                                                        <outlet property="valueTextField4" destination="LjK-wj-eMX" id="5WY-zY-03J"/>
+                                                    </connections>
+                                                </tableCellView>
+                                                <tableCellView identifier="CIAttributeTypePosition" id="Jwa-KS-Bun" customClass="SCPositionCellView">
+                                                    <rect key="frame" x="1" y="397" width="477" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="2TG-i3-5sD">
@@ -291,7 +462,7 @@
                                                     </connections>
                                                 </tableCellView>
                                                 <tableCellView identifier="ResetDefaults" id="aOC-tr-hs7" customClass="SCResetDefaultsCellView">
-                                                    <rect key="frame" x="1" y="331" width="477" height="64"/>
+                                                    <rect key="frame" x="1" y="463" width="477" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <button verticalHuggingPriority="750" id="zX5-G3-jBc">

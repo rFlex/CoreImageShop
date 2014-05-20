@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC0FB1CC192BFD3C001AE827 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */; };
 		DC0FB1CD192BFD75001AE827 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */; };
+		DC0FB1D0192C14FF001AE827 /* SCRectangleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */; };
 		DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
 		DCB041941926817D00D945D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB041921926817D00D945D2 /* InfoPlist.strings */; };
 		DCB041961926817D00D945D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041951926817D00D945D2 /* main.m */; };
@@ -55,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
+		DC0FB1CE192C14FF001AE827 /* SCRectangleCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRectangleCellView.h; sourceTree = "<group>"; };
+		DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRectangleCellView.m; sourceTree = "<group>"; };
 		DCB041861926817D00D945D2 /* CoreImageShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041891926817D00D945D2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DCB0418C1926817D00D945D2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -240,6 +243,8 @@
 				DCB04222192AB3D800D945D2 /* SCResetDefaultsCellView.m */,
 				DCB04224192ABA2E00D945D2 /* SCPositionCellView.h */,
 				DCB04225192ABA2E00D945D2 /* SCPositionCellView.m */,
+				DC0FB1CE192C14FF001AE827 /* SCRectangleCellView.h */,
+				DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 			files = (
 				DCB0421D192A8E7D00D945D2 /* NSTableView+Resize.m in Sources */,
 				DCB041E51926CA5E00D945D2 /* SCMainWindowController.m in Sources */,
+				DC0FB1D0192C14FF001AE827 /* SCRectangleCellView.m in Sources */,
 				DCB042031926F05600D945D2 /* SCFilterView.m in Sources */,
 				DCB0419D1926817D00D945D2 /* SCAppDelegate.m in Sources */,
 				DCB041E91926CC8D00D945D2 /* SCMainWindow.m in Sources */,

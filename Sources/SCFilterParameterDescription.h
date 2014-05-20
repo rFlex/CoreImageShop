@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SCFilterParameterDescription : NSObject
+@interface SCFilterParameterDescription : NSObject<NSCoding>
 
 @property (readonly, nonatomic) NSString *name;
 @property (readonly, nonatomic) NSString *localizedName;
 @property (copy, nonatomic) NSString *type;
-@property (strong, nonatomic) id minValue;
-@property (strong, nonatomic) id maxValue;
+@property (strong, nonatomic) id<NSCoding> minValue;
+@property (strong, nonatomic) id<NSCoding> maxValue;
 
 @property (readonly, nonatomic) double minValueAsDouble;
 @property (readonly, nonatomic) double maxValueAsDouble;

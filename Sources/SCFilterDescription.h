@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SCFilterParameterDescription.h"
 
-@interface SCFilterDescription : NSObject
+@interface SCFilterDescription : NSObject<NSCoding>
 
 @property (assign, nonatomic) NSInteger filterId;
 @property (readonly, nonatomic) NSString *name;

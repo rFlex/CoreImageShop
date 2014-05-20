@@ -29,13 +29,6 @@
                                     <action selector="orderFrontStandardAboutPanel:" target="-1" id="Exp-CZ-Vem"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
-                            <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
-                            <menuItem title="Services" id="NMo-om-nkz">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
                             <menuItem title="Hide CoreImageShop" keyEquivalent="h" id="Olw-nP-bQN">
                                 <connections>
@@ -91,22 +84,22 @@
                                 </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                            <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
+                            <menuItem title="Close" tag="1" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="HmO-Ls-i7Q"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
+                            <menuItem title="Save…" tag="1" keyEquivalent="s" id="pxx-59-PXV">
                                 <connections>
                                     <action selector="saveDocument:" target="-1" id="teZ-XB-qJY"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save As…" keyEquivalent="S" id="Bw7-FT-i3A">
+                            <menuItem title="Save As…" tag="1" keyEquivalent="S" id="Bw7-FT-i3A">
                                 <connections>
                                     <action selector="saveDocumentAs:" target="-1" id="mDf-zr-I0C"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Export Code…" id="hAT-c6-kGu">
+                            <menuItem title="Export Code…" tag="1" id="hAT-c6-kGu">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="exportCode:" target="Voe-Tx-rLC" id="vyb-iw-NpJ"/>

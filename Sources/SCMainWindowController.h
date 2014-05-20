@@ -13,12 +13,17 @@
 @interface SCMainWindowController : NSWindowController<NSTableViewDelegate, NSTableViewDataSource, NSWindowDelegate, SCFilterDelegate>
 
 @property (weak) IBOutlet NSTableView *filtersTableView;
-
 @property (weak) IBOutlet SCMediaDisplayerView *mediaDisplayerView;
+
 @property (readonly, nonatomic) NSArray *filters;
+@property (strong, nonatomic) NSURL *fileUrl;
+@property (readonly, nonatomic) NSData *documentData;
 
 - (void)addFilter:(SCFilter *)filter;
 - (void)removeFilter:(SCFilter *)filter;
+
+- (void)applyDocument:(NSData *)data;
+
 - (IBAction)deleteActivated:(NSButton *)sender;
 
 @end

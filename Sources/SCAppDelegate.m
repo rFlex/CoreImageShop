@@ -17,8 +17,9 @@
 
 @interface SCAppDelegate() {
     SCFilterDescriptionList *_filterDescriptions;
-    SCMainWindowController *_mainVC;
+    NSMutableArray *_projectVCs;
     NSURL *_filterDescriptionURL;
+    SCMainWindowController *_displayedWindow;
 }
 
 @end
@@ -31,19 +32,129 @@
     
     if (url != nil) {
         [self openFilterDescriptions:[NSURL URLWithString:url]];
+        _projectVCs = [NSMutableArray new];
     }
+    NSString *lastSavedUrl = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSavedFilterFileUrlKey];
     
-    [self openProject];
+    NSURL *projectUrl = lastSavedUrl != nil ? [NSURL URLWithString:lastSavedUrl] : nil;
+    
+    [self openProject:projectUrl];
 }
 
-- (void)openProject {
+- (BOOL)validateMenuItem:(NSMenuItem *)item {
+    if (item.tag == 1) {
+        return _displayedWindow != nil;
+    }
+    
+    return YES;
+}
+
+- (void)performClose:(id)sender {
+    if (_displayedWindow != nil) {
+        [self closeWindow:_displayedWindow];
+    }
+}
+
+- (void)saveDocument:(id)sender {
+    if (_displayedWindow != nil) {
+        if (_displayedWindow.fileUrl == nil) {
+            [self saveDocumentAs:sender];
+        } else {
+            [self save:_displayedWindow to:_displayedWindow.fileUrl];
+        }
+    }
+}
+
+- (void)save:(SCMainWindowController *)displayedWindow to:(NSURL *)url {
+    NSData *data = displayedWindow.documentData;
+    NSError *error = nil;
+    
+    [data writeToURL:url options:NSDataWritingAtomic error:&error];
+    
+    if (error == nil) {
+        displayedWindow.fileUrl = url;
+        [[NSUserDefaults standardUserDefaults] setObject:url.absoluteString forKey:kLastSavedFilterFileUrlKey];
+    } else {
+        [[NSAlert alertWithError:error] runModal];
+    }
+}
+
+- (void)saveDocumentAs:(id)sender {
+    if (_displayedWindow != nil) {
+        SCMainWindowController *displayedWindow = _displayedWindow;
+        NSSavePanel *savePanel = [NSSavePanel savePanel];
+        
+        [savePanel beginWithCompletionHandler:^(NSInteger result) {
+            if (result == NSOKButton) {
+                [self save:displayedWindow to:savePanel.URL];
+            }
+            
+        }];
+    }
+}
+
+- (void)openProject:(NSURL *)url {
+    NSData *data = nil;
+    
+    if (url != nil) {
+        NSError *error = nil;
+        data = [NSData dataWithContentsOfURL:url options:NSDataReadingMapped error:&error];
+        
+        if (error != nil) {
+            NSAlert *alert = [NSAlert alertWithError:error];
+            [alert runModal];
+            return;
+        }
+    }
+
+    
     SCMainWindowController *mainViewController = [[SCMainWindowController alloc] initWithWindowNibName:@"SCMainWindowController"];
+    mainViewController.window.delegate = self;
+    
+    if (data != nil) {
+        [mainViewController applyDocument:data];
+    }
+    if (url != nil) {
+        mainViewController.fileUrl = url;
+    }
+    
     [mainViewController showWindow:nil];
-    _mainVC = mainViewController;
+    [_projectVCs addObject:mainViewController];
+}
+
+- (void)closeWindow:(SCMainWindowController *)windowVC {
+    if (windowVC == _displayedWindow) {
+        _displayedWindow = nil;
+    }
+    
+    [_projectVCs removeObject:windowVC];
+}
+
+- (void)windowWillClose:(NSNotification *)notification {
+    NSWindow *window = notification.object;
+    [self closeWindow:window.windowController];
+}
+
+- (void)windowDidBecomeKey:(NSNotification *)notification {
+    _displayedWindow = ((NSWindow *)notification.object).windowController;
+}
+
+- (void)newDocument:(id)sender {
+    [self openProject:nil];
+}
+
+- (void)openDocument:(id)sender {
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    
+    [openPanel beginWithCompletionHandler:^(NSInteger result) {
+        if (result == NSOKButton) {
+            [self openProject:openPanel.URL];
+        }
+    }];
 }
 
 - (IBAction)exportCode:(id)sender {
-    if (_mainVC != nil) {
+    if (_displayedWindow != nil) {
         NSSavePanel *savePen = [NSSavePanel savePanel];
     
         NSComboBox *comboBox = [[NSComboBox alloc] init];
@@ -54,6 +165,7 @@
         [comboBox sizeToFit];
         
         savePen.accessoryView = comboBox;
+        NSArray *filters = _displayedWindow.filters;
         
         [savePen beginWithCompletionHandler:^(NSInteger result) {
             if (result == NSOKButton) {
@@ -62,7 +174,7 @@
                 NSString *fileName = [url.lastPathComponent stringByDeletingPathExtension];
                 
                 SCFilterCodeGenerator *codeGenerator = [[SCFilterCodeGenerator alloc] init];
-                codeGenerator.filters = _mainVC.filters;
+                codeGenerator.filters = filters;
                 
                 if ([comboBox.stringValue isEqualToString:@"OSX"]) {
                     codeGenerator.outputSystem = FilterCodeGeneratorOutputSystemMac;
@@ -115,7 +227,7 @@
     SCFilter *filter = [SCFilter filterWithFilterDescription:filterDescription];
     
     if (filter != nil) {
-        [_mainVC addFilter:filter];
+        [_displayedWindow addFilter:filter];
     } else {
         NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to add filter" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Filter %@ not found in system", filterDescription.name];
         [alert runModal];

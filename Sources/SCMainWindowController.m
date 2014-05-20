@@ -122,6 +122,22 @@
     self.mediaDisplayerView.layer.filters = filters;
 }
 
+- (NSData *)documentData {
+    return [NSKeyedArchiver archivedDataWithRootObject:self.filters];
+}
+
+- (void)applyDocument:(NSData *)data {
+    _filters = [[NSKeyedUnarchiver unarchiveObjectWithData:data] mutableCopy];
+    
+    [self.filtersTableView reloadData];
+    [self rebuildFilterPipeline];
+}
+
+- (void)setFileUrl:(NSURL *)fileUrl {
+    _fileUrl = fileUrl;
+    self.window.title = fileUrl.lastPathComponent;
+}
+
 - (void)rebuildFilterPipeline {
     SCFilterGroup *filterGroup = [[SCFilterGroup alloc] init];
     for (SCFilter *filter in _filters) {

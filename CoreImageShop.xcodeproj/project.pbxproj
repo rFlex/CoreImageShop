@@ -16,8 +16,6 @@
 		DCB041A21926817D00D945D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB041A11926817D00D945D2 /* Images.xcassets */; };
 		DCB041A91926817D00D945D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041A81926817D00D945D2 /* XCTest.framework */; };
 		DCB041AA1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
-		DCB041B21926817D00D945D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB041B01926817D00D945D2 /* InfoPlist.strings */; };
-		DCB041B41926817D00D945D2 /* CoreImageShopTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041B31926817D00D945D2 /* CoreImageShopTests.m */; };
 		DCB041BF1926896B00D945D2 /* SCFilterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041BE1926896B00D945D2 /* SCFilterDescription.m */; };
 		DCB041C21926899F00D945D2 /* SCFilterParameterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041C11926899F00D945D2 /* SCFilterParameterDescription.m */; };
 		DCB041C519268CC000D945D2 /* SCFilterDescriptionList.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041C419268CC000D945D2 /* SCFilterDescriptionList.m */; };
@@ -76,9 +74,6 @@
 		DCB041A11926817D00D945D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCB041A71926817D00D945D2 /* CoreImageShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreImageShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041A81926817D00D945D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		DCB041AF1926817D00D945D2 /* CoreImageShopTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreImageShopTests-Info.plist"; sourceTree = "<group>"; };
-		DCB041B11926817D00D945D2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DCB041B31926817D00D945D2 /* CoreImageShopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreImageShopTests.m; sourceTree = "<group>"; };
 		DCB041BD1926896B00D945D2 /* SCFilterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterDescription.h; sourceTree = "<group>"; };
 		DCB041BE1926896B00D945D2 /* SCFilterDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterDescription.m; sourceTree = "<group>"; };
 		DCB041C01926899F00D945D2 /* SCFilterParameterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterParameterDescription.h; sourceTree = "<group>"; };
@@ -162,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				DCB0418F1926817D00D945D2 /* Sources */,
-				DCB041AD1926817D00D945D2 /* CoreImageShopTests */,
 				DCB041881926817D00D945D2 /* Frameworks */,
 				DCB041871926817D00D945D2 /* Products */,
 			);
@@ -234,24 +228,6 @@
 				DCB041951926817D00D945D2 /* main.m */,
 				DCB041971926817D00D945D2 /* CoreImageShop-Prefix.pch */,
 				DCB041981926817D00D945D2 /* Credits.rtf */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DCB041AD1926817D00D945D2 /* CoreImageShopTests */ = {
-			isa = PBXGroup;
-			children = (
-				DCB041B31926817D00D945D2 /* CoreImageShopTests.m */,
-				DCB041AE1926817D00D945D2 /* Supporting Files */,
-			);
-			path = CoreImageShopTests;
-			sourceTree = "<group>";
-		};
-		DCB041AE1926817D00D945D2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				DCB041AF1926817D00D945D2 /* CoreImageShopTests-Info.plist */,
-				DCB041B01926817D00D945D2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -405,7 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCB041B21926817D00D945D2 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +424,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCB041B41926817D00D945D2 /* CoreImageShopTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,14 +460,6 @@
 				DCB0419F1926817D00D945D2 /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		DCB041B01926817D00D945D2 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DCB041B11926817D00D945D2 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

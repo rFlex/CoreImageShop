@@ -17,6 +17,20 @@
 
 @implementation SCFilterDescription
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    NSString *name = [aDecoder decodeObjectForKey:@"Name"];
+    NSString *category = [aDecoder decodeObjectForKey:@"Category"];
+    NSArray *parameters = [aDecoder decodeObjectForKey:@"Parameters"];
+
+    self = [self initWithName:name andCategory:category];
+    
+    if (self) {
+        _parameters = [parameters mutableCopy];
+    }
+    
+    return self;
+}
+
 - (id)initWithName:(NSString *)name andCategory:(NSString *)category {
     self = [super init];
     
@@ -47,6 +61,11 @@
     return desc;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.name forKey:@"Name"];
+    [aCoder encodeObject:self.category forKey:@"Category"];
+    [aCoder encodeObject:self.parameters forKey:@"Parameters"];
+}
 
 - (NSArray *)parameters {
     return _parameters;

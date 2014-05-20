@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#define kLastSavedFilterFileUrlKey @"LastSavedFilterFileUrl"
 
-@interface SCAppDelegate : NSObject <NSApplicationDelegate>
+@interface SCAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 
 @property (weak) IBOutlet NSMenu *filtersMenu;
 - (IBAction)changeFilterDescriptionFile:(id)sender;

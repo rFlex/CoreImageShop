@@ -17,7 +17,7 @@
 
 @end
 
-@interface SCFilter : NSObject
+@interface SCFilter : NSObject<NSCoding>
 
 @property (weak, nonatomic) id<SCFilterDelegate> delegate;
 @property (readonly, nonatomic) CIFilter *coreImageFilter;

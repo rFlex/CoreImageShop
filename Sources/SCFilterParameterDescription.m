@@ -11,6 +11,23 @@
 
 @implementation SCFilterParameterDescription
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    NSString *name = [aDecoder decodeObjectForKey:@"Name"];
+    NSString *type = [aDecoder decodeObjectForKey:@"Type"];
+    id<NSCoding> minValue = [aDecoder decodeObjectForKey:@"MinValue"];
+    id<NSCoding> maxValue = [aDecoder decodeObjectForKey:@"MaxValue"];
+    
+    self = [self initWithName:name];
+    
+    if (self) {
+        self.minValue = minValue;
+        self.maxValue = maxValue;
+        self.type = type;
+    }
+    
+    return self;
+}
+
 - (id)initWithName:(NSString *)name {
     self = [super init];
     
@@ -30,6 +47,13 @@
     [desc appendFormat:@"Max Value: %@", self.maxValue];
     
     return desc;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.name forKey:@"Name"];
+    [aCoder encodeObject:self.type forKey:@"Type"];
+    [aCoder encodeObject:self.minValue forKey:@"MinValue"];
+    [aCoder encodeObject:self.maxValue forKey:@"MaxValue"];
 }
 
 - (NSString *)localizedName {

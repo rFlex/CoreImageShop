@@ -16,6 +16,18 @@
 
 @implementation SCFilter
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    
+    if (self) {
+        _filterDescription = [aDecoder decodeObjectForKey:@"FilterDescription"];
+        _coreImageFilter = [aDecoder decodeObjectForKey:@"CoreImageFilter"];
+        self.enabled = [aDecoder decodeBoolForKey:@"Enabled"];
+    }
+    
+    return self;
+}
+
 - (id)initWithFilterDescription:(SCFilterDescription *)filterDescription {
     self = [super init];
     
@@ -50,6 +62,12 @@
     if ([delegate respondsToSelector:@selector(filter:didChangeParameter:)]) {
         [delegate filter:self didChangeParameter:parameterDescription];
     }
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.filterDescription forKey:@"FilterDescription"];
+    [aCoder encodeObject:self.coreImageFilter forKey:@"CoreImageFilter"];
+    [aCoder encodeBool:self.enabled forKey:@"Enabled"];
 }
 
 - (void)resetToDefaults {

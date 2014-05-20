@@ -191,7 +191,7 @@
                                                         <textField verticalHuggingPriority="750" id="XJY-sd-O9w">
                                                             <rect key="frame" x="414" y="9" width="53" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="2VB-4r-su0">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="2" drawsBackground="YES" id="2VB-4r-su0">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="5yA-V7-4rs">
                                                                     <metadata>
                                                                         <real key="inspectorSampleValue" value="1"/>
@@ -236,7 +236,7 @@
                                                         <textField verticalHuggingPriority="750" id="vlt-ef-6hZ">
                                                             <rect key="frame" x="414" y="9" width="53" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="369-zJ-lqw">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="3" drawsBackground="YES" id="369-zJ-lqw">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="tmu-Xa-sjX">
                                                                     <metadata>
                                                                         <real key="inspectorSampleValue" value="1"/>
@@ -247,7 +247,7 @@
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <action selector="textFieldValueChanged:" target="0Rg-vG-amQ" id="kHE-mP-blb"/>
+                                                                <action selector="textFieldValueChanged:" target="0Rg-vG-amQ" id="K3k-8l-iwb"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -281,7 +281,7 @@
                                                         <textField verticalHuggingPriority="750" id="5l4-wj-oBV">
                                                             <rect key="frame" x="47" y="13" width="53" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="fFO-Dv-agR">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="4" drawsBackground="YES" id="fFO-Dv-agR">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="hKt-aG-YUG">
                                                                     <metadata>
                                                                         <real key="inspectorSampleValue" value="1"/>
@@ -306,7 +306,7 @@
                                                         <textField verticalHuggingPriority="750" id="5yH-Ic-OF2">
                                                             <rect key="frame" x="170" y="13" width="53" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="3EO-uu-EV1">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="5" drawsBackground="YES" id="3EO-uu-EV1">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="FYa-m3-7fS">
                                                                     <metadata>
                                                                         <real key="inspectorSampleValue" value="1"/>
@@ -317,7 +317,7 @@
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <action selector="textFieldValueChanged:" target="0Rg-vG-amQ" id="BA7-42-M8t"/>
+                                                                <action selector="textFieldValueChanged:" target="cq8-aQ-s1S" id="hhB-LJ-YBA"/>
                                                             </connections>
                                                         </textField>
                                                         <slider horizontalHuggingPriority="750" verticalHuggingPriority="750" id="A6s-Pn-FU7">
@@ -331,7 +331,7 @@
                                                         <textField verticalHuggingPriority="750" id="Iut-vP-Gcu">
                                                             <rect key="frame" x="295" y="13" width="53" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="UUJ-X9-6dO">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="6" drawsBackground="YES" id="UUJ-X9-6dO">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="Qmr-co-aU6">
                                                                     <metadata>
                                                                         <real key="inspectorSampleValue" value="1"/>
@@ -356,7 +356,7 @@
                                                         <textField verticalHuggingPriority="750" id="LjK-wj-eMX">
                                                             <rect key="frame" x="413" y="13" width="53" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1,000" drawsBackground="YES" id="YBX-yw-jXZ">
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" continuous="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="1" drawsBackground="YES" id="YBX-yw-jXZ">
                                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="hTt-zk-aiE">
                                                                     <metadata>
                                                                         <real key="inspectorSampleValue" value="1"/>

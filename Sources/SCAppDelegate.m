@@ -32,8 +32,12 @@
     
     if (url != nil) {
         [self openFilterDescriptions:[NSURL URLWithString:url]];
-        _projectVCs = [NSMutableArray new];
+    } else {
+        [self loadEmbeddedFileDescriptionFile:self];
     }
+    
+    _projectVCs = [NSMutableArray new];
+    
     NSString *lastSavedUrl = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSavedFilterFileUrlKey];
     
     NSURL *projectUrl = lastSavedUrl != nil ? [NSURL URLWithString:lastSavedUrl] : nil;
@@ -314,6 +318,10 @@
     if (_filterDescriptionURL != nil) {
         [self openFilterDescriptions:_filterDescriptionURL];        
     }
+}
+
+- (IBAction)loadEmbeddedFileDescriptionFile:(id)sender {
+    [self openFilterDescriptions:[[NSBundle mainBundle] URLForResource:@"available_filters" withExtension:@"cis"]];
 }
 
 - (SCFilterDescriptionList *)filterDescriptions {

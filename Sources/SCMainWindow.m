@@ -19,4 +19,8 @@
     return self;
 }
 
+- (NSTimeInterval)animationResizeTime:(NSRect)newFrame {
+    return 0;
+}
+
 @end

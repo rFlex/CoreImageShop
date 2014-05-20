@@ -50,7 +50,8 @@
         self.layerContentsRedrawPolicy = NSViewLayerContentsRedrawOnSetNeedsDisplay;
         _playButton.target = self;
         _playButton.action = @selector(playPressed:);
-
+        
+        [self updateSubviews];
     }
     
     return self;
@@ -83,11 +84,15 @@
     [super drawRect:dirtyRect];
 }
 
+- (void)updateSubviews {
+    _playerLayer.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+    _imageView.frame = self.bounds;
+}
+
 - (void)resizeWithOldSuperviewSize:(NSSize)oldSize {
     [super resizeWithOldSuperviewSize:oldSize];
     
-    _playerLayer.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
-    _imageView.frame = self.bounds;
+    [self updateSubviews];
 }
 
 - (NSArray *)fileUrlsForDraggingInfo:(id<NSDraggingInfo>)sender {

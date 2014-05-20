@@ -1,0 +1,21 @@
+CICategoryBlur
+	CIBoxBlur
+		inputRadius: CIAttributeTypeDistance(0->200)
+	CIGaussianBlur
+		inputRadius: CIAttributeTypeDistance(0->100)
+
+CICategoryColorAdjustment
+	CIColorClamp
+		inputMinComponents: CIAttributeTypeRectangle(0 0 0 0->1 1 1 1)
+		inputMaxComponents: CIAttributeTypeRectangle(0 0 0 0->1 1 1 1)
+
+
+CICategoryColorEffect
+	CIColorCube
+		inputCubeDimension:CIAttributeTypeCount(0->100)
+	CIPhotoEffectMono
+	CIPhotoEffectNoir
+	CICrystallize
+		inputRadius:CIAttributeTypeDistance(0->100)
+		inputCenter:CIAttributeTypePosition
+	

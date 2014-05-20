@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C1021" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SCMainWindowController">
+            <connections>
+                <outlet property="filtersTableView" destination="FTf-1S-Cnx" id="Ehj-Mw-DE0"/>
+                <outlet property="mediaDisplayerView" destination="Her-wd-DKs" id="uqN-fN-YSk"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="My Filter" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="SCMainWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="785" height="446"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="785" height="446"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="65" horizontalPageScroll="10" verticalLineScroll="65" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Jc1-ES-UwK">
+                        <rect key="frame" x="571" y="0.0" width="215" height="447"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
+                        <clipView key="contentView" copiesOnScroll="NO" id="vfz-f0-6JV">
+                            <rect key="frame" x="1" y="17" width="213" height="429"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="none" multipleSelection="NO" autosaveColumns="NO" rowHeight="63" rowSizeStyle="automatic" headerView="Cj3-Uf-BeG" viewBased="YES" id="FTf-1S-Cnx">
+                                    <rect key="frame" x="0.0" y="0.0" width="213" height="429"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                    <tableColumns>
+                                        <tableColumn identifier="SCFilterView" width="210" minWidth="10" maxWidth="3.4028234663852886e+38" id="NKf-lZ-5Qp">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Filters">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="H8K-hl-VfD">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <prototypeCellViews>
+                                                <tableCellView identifier="SCFilterView" id="jDm-5G-DSa" customClass="SCFilterView">
+                                                    <rect key="frame" x="1" y="1" width="210" height="63"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="neX-ff-goE">
+                                                            <rect key="frame" x="0.0" y="33" width="210" height="27"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Color Clamp" id="hQp-49-eYQ">
+                                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <button id="ezd-ug-wJo">
+                                                            <rect key="frame" x="176" y="3" width="30" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                            <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAdvanced" imagePosition="only" alignment="left" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="IP1-WM-dYG">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="settingsTapped:" target="-2" id="Hfa-h0-Wxz"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button id="9Uz-ba-qP1">
+                                                            <rect key="frame" x="0.0" y="7" width="150" height="22"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <buttonCell key="cell" type="check" title="Enabled" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="5oI-Y8-M3Y">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="checkboxChanged:" target="-2" id="SA5-t6-Xc1"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" id="x8J-7s-mcC">
+                                                            <rect key="frame" x="136" y="-4" width="39" height="38"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <buttonCell key="cell" type="round" title="-" bezelStyle="circular" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyDown" id="Rdh-RK-47R">
+                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                <font key="font" size="15" name="LucidaGrande"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="deleteActivated:" target="-2" id="BWC-j2-T0X"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <connections>
+                                                        <outlet property="enabledCheckbox" destination="9Uz-ba-qP1" id="sBe-V8-2e4"/>
+                                                        <outlet property="title" destination="neX-ff-goE" id="BMF-h4-NoL"/>
+                                                    </connections>
+                                                </tableCellView>
+                                            </prototypeCellViews>
+                                        </tableColumn>
+                                    </tableColumns>
+                                    <connections>
+                                        <outlet property="delegate" destination="-2" id="WDh-OB-iBw"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="LF5-Qz-WK5">
+                            <rect key="frame" x="2" y="429" width="211" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="iJ0-gK-dZo">
+                            <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <tableHeaderView key="headerView" id="Cj3-Uf-BeG">
+                            <rect key="frame" x="0.0" y="0.0" width="213" height="17"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </tableHeaderView>
+                    </scrollView>
+                    <customView id="Her-wd-DKs" customClass="SCMediaDisplayerView">
+                        <rect key="frame" x="0.0" y="0.0" width="571" height="447"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </customView>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="Ze0-ff-igg"/>
+    </objects>
+    <resources>
+        <image name="NSAdvanced" width="32" height="32"/>
+    </resources>
+</document>

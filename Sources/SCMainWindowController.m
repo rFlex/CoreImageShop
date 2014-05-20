@@ -10,6 +10,7 @@
 #import "SCFilterView.h"
 #import "SCMediaDisplayerView.h"
 #import "SCFilterConfiguratorWindowController.h"
+#import "SCFilterGroup+Serialization.h"
 
 @interface SCMainWindowController () {
     NSMutableArray *_filters;
@@ -139,14 +140,7 @@
 }
 
 - (void)rebuildFilterPipeline {
-    SCFilterGroup *filterGroup = [[SCFilterGroup alloc] init];
-    for (SCFilter *filter in _filters) {
-        if (filter.enabled) {
-            [filterGroup addFilter:filter.coreImageFilter];
-        }
-    }
-    
-    self.mediaDisplayerView.filterGroup = filterGroup;
+    self.mediaDisplayerView.filterGroup = [SCFilterGroup filterGroupWithSCFilters:_filters];
 }
 
 - (IBAction)deleteActivated:(NSButton *)sender {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC633DE1192BCA4100050796 /* SCFilterGroup+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = DC633DE0192BCA4100050796 /* SCFilterGroup+Serialization.m */; };
 		DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
 		DCB041941926817D00D945D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB041921926817D00D945D2 /* InfoPlist.strings */; };
 		DCB041961926817D00D945D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041951926817D00D945D2 /* main.m */; };
@@ -58,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC633DDF192BCA4100050796 /* SCFilterGroup+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFilterGroup+Serialization.h"; sourceTree = "<group>"; };
+		DC633DE0192BCA4100050796 /* SCFilterGroup+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCFilterGroup+Serialization.m"; sourceTree = "<group>"; };
 		DCB041861926817D00D945D2 /* CoreImageShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041891926817D00D945D2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DCB0418C1926817D00D945D2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -253,6 +256,8 @@
 				DCB0422B192ACD5700D945D2 /* SCFilterParameterConverterManager.m */,
 				DCB0422D192ACD9000D945D2 /* SCFilterParameterConverter.h */,
 				DCB0422E192ACD9000D945D2 /* SCFilterParameterConverter.m */,
+				DC633DDF192BCA4100050796 /* SCFilterGroup+Serialization.h */,
+				DC633DE0192BCA4100050796 /* SCFilterGroup+Serialization.m */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				DCB0421D192A8E7D00D945D2 /* NSTableView+Resize.m in Sources */,
 				DCB041E51926CA5E00D945D2 /* SCMainWindowController.m in Sources */,
 				DCB042031926F05600D945D2 /* SCFilterView.m in Sources */,
+				DC633DE1192BCA4100050796 /* SCFilterGroup+Serialization.m in Sources */,
 				DCB0419D1926817D00D945D2 /* SCAppDelegate.m in Sources */,
 				DCB041E91926CC8D00D945D2 /* SCMainWindow.m in Sources */,
 				DCB04226192ABA2E00D945D2 /* SCPositionCellView.m in Sources */,

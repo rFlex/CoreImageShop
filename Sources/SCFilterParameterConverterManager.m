@@ -41,6 +41,7 @@
         
         [self addParameterConverter:vectorConverter forParameterType:@"CIAttributeTypeOffset"];
         [self addParameterConverter:vectorConverter forParameterType:@"CIAttributeTypePosition"];
+        [self addParameterConverter:vectorConverter forParameterType:@"CIAttributeTypeRectangle"];
         
         SCFilterParameterConverter *colorVector = [[SCFilterParameterConverter alloc] initWithConverterBlock:^id(NSString *string) {
             return [CIColor colorWithString:string];
@@ -49,6 +50,7 @@
         }];
         
         [self addParameterConverter:colorVector forParameterType:@"CIAttributeTypeOpaqueColor"];
+    
         
     }
     

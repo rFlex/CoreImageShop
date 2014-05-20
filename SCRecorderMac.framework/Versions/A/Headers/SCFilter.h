@@ -7,6 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
+#import <CoreImage/CoreImage.h>
+#else
+#import <QuartzCore/QuartzCore.h>
+#endif
+
 #import "SCFilterDescription.h"
 
 @class SCFilter;
@@ -25,7 +32,10 @@
 @property (assign, nonatomic) BOOL enabled;
 
 + (SCFilter *)filterWithFilterDescription:(SCFilterDescription *)filterDescription;
+
 - (id)initWithFilterDescription:(SCFilterDescription *)filterDescription;
+
+- (id)initWithCIFilter:(CIFilter *)filter;
 
 - (id)parameterValueForParameterDescription:(SCFilterParameterDescription *)parameterDescription;
 

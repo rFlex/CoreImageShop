@@ -7,7 +7,7 @@
 //
 
 #import "SCFilterCodeGenerator.h"
-#import "SCFilter.h"
+#import <SCRecorderMac/SCRecorderMac.h>
 #import "SCFilterParameterConverterManager.h"
 
 @implementation SCFilterCodeGenerator

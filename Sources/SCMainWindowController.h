@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SCMediaDisplayerView.h"
-#import "SCFilter.h"
+#import <SCRecorderMac/SCRecorderMac.h>
 
 @interface SCMainWindowController : NSWindowController<NSTableViewDelegate, NSTableViewDataSource, NSWindowDelegate, SCFilterDelegate>
 

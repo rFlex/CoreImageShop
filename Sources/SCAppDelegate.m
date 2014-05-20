@@ -212,7 +212,8 @@
         
         NSUInteger index = 0;
         for (SCFilterDescription *filter in [descriptionFilter filterDescriptionsForCategory:category]) {
-            NSMenuItem *filterItem = [[NSMenuItem alloc] initWithTitle:filter.localizedName action:nil keyEquivalent:@""];
+            NSString *filterName = [SCFilterTranslator filterName:filter.name];
+            NSMenuItem *filterItem = [[NSMenuItem alloc] initWithTitle:filterName action:nil keyEquivalent:@""];
             
             filterItem.tag = filter.filterId;
             filterItem.target = self;

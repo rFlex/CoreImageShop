@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SCFilter.h"
+#import <SCRecorderMac/SCRecorderMac.h>
 
 @interface SCFilterConfiguratorWindowController : NSWindowController<NSTableViewDataSource, NSTableViewDelegate>
 

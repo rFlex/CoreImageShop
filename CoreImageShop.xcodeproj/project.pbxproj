@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC633DE1192BCA4100050796 /* SCFilterGroup+Serialization.m in Sources */ = {isa = PBXBuildFile; fileRef = DC633DE0192BCA4100050796 /* SCFilterGroup+Serialization.m */; };
+		DCA8EF94192BD8B300839BE2 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA8EF93192BD8B300839BE2 /* SCRecorderMac.framework */; };
+		DCA8EF97192BDA8000839BE2 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA8EF93192BD8B300839BE2 /* SCRecorderMac.framework */; };
 		DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
 		DCB041941926817D00D945D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB041921926817D00D945D2 /* InfoPlist.strings */; };
 		DCB041961926817D00D945D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041951926817D00D945D2 /* main.m */; };
@@ -15,23 +16,14 @@
 		DCB0419D1926817D00D945D2 /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB0419C1926817D00D945D2 /* SCAppDelegate.m */; };
 		DCB041A01926817D00D945D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB0419E1926817D00D945D2 /* MainMenu.xib */; };
 		DCB041A21926817D00D945D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB041A11926817D00D945D2 /* Images.xcassets */; };
-		DCB041A91926817D00D945D2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041A81926817D00D945D2 /* XCTest.framework */; };
-		DCB041AA1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
-		DCB041BF1926896B00D945D2 /* SCFilterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041BE1926896B00D945D2 /* SCFilterDescription.m */; };
-		DCB041C21926899F00D945D2 /* SCFilterParameterDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041C11926899F00D945D2 /* SCFilterParameterDescription.m */; };
-		DCB041C519268CC000D945D2 /* SCFilterDescriptionList.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041C419268CC000D945D2 /* SCFilterDescriptionList.m */; };
 		DCB041C81926907900D945D2 /* SCFilterDescriptionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041C71926907900D945D2 /* SCFilterDescriptionParser.m */; };
 		DCB041CB1926A3D800D945D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041CA1926A3D800D945D2 /* AVFoundation.framework */; };
 		DCB041CE1926A8E200D945D2 /* SCFilterTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041CD1926A8E200D945D2 /* SCFilterTranslator.m */; };
-		DCB041D41926C66900D945D2 /* SCFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041D31926C66900D945D2 /* SCFilter.m */; };
 		DCB041D61926C6F700D945D2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041D51926C6F700D945D2 /* QuartzCore.framework */; };
 		DCB041E51926CA5E00D945D2 /* SCMainWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041E31926CA5E00D945D2 /* SCMainWindowController.m */; };
 		DCB041E61926CA5E00D945D2 /* SCMainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB041E41926CA5E00D945D2 /* SCMainWindowController.xib */; };
 		DCB041E91926CC8D00D945D2 /* SCMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041E81926CC8D00D945D2 /* SCMainWindow.m */; };
 		DCB041EC1926CE0700D945D2 /* SCMediaDisplayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041EB1926CE0700D945D2 /* SCMediaDisplayerView.m */; };
-		DCB041F71926D0D500D945D2 /* SCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041F41926D0D500D945D2 /* SCPlayer.m */; };
-		DCB041F81926D0D500D945D2 /* SCFilterGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041F61926D0D500D945D2 /* SCFilterGroup.m */; };
-		DCB041FC1926D1A300D945D2 /* SCImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041FB1926D1A300D945D2 /* SCImageView.m */; };
 		DCB041FE1926D1D500D945D2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041FD1926D1D500D945D2 /* GLKit.framework */; };
 		DCB042031926F05600D945D2 /* SCFilterView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB042021926F05600D945D2 /* SCFilterView.m */; };
 		DCB0420E192A78F100D945D2 /* SCFilterConfiguratorWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB0420C192A78F100D945D2 /* SCFilterConfiguratorWindowController.m */; };
@@ -48,19 +40,21 @@
 		DCB0422F192ACD9000D945D2 /* SCFilterParameterConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB0422E192ACD9000D945D2 /* SCFilterParameterConverter.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		DCB041AB1926817D00D945D2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DCB0417E1926817D00D945D2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DCB041851926817D00D945D2;
-			remoteInfo = CoreImageShop;
+/* Begin PBXCopyFilesBuildPhase section */
+		DCA8EF96192BDA7400839BE2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DCA8EF97192BDA8000839BE2 /* SCRecorderMac.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXContainerItemProxy section */
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC633DDF192BCA4100050796 /* SCFilterGroup+Serialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SCFilterGroup+Serialization.h"; sourceTree = "<group>"; };
-		DC633DE0192BCA4100050796 /* SCFilterGroup+Serialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SCFilterGroup+Serialization.m"; sourceTree = "<group>"; };
+		DCA8EF93192BD8B300839BE2 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
 		DCB041861926817D00D945D2 /* CoreImageShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041891926817D00D945D2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DCB0418C1926817D00D945D2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -75,21 +69,12 @@
 		DCB0419C1926817D00D945D2 /* SCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAppDelegate.m; sourceTree = "<group>"; };
 		DCB0419F1926817D00D945D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DCB041A11926817D00D945D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DCB041A71926817D00D945D2 /* CoreImageShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreImageShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041A81926817D00D945D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		DCB041BD1926896B00D945D2 /* SCFilterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterDescription.h; sourceTree = "<group>"; };
-		DCB041BE1926896B00D945D2 /* SCFilterDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterDescription.m; sourceTree = "<group>"; };
-		DCB041C01926899F00D945D2 /* SCFilterParameterDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterParameterDescription.h; sourceTree = "<group>"; };
-		DCB041C11926899F00D945D2 /* SCFilterParameterDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterParameterDescription.m; sourceTree = "<group>"; };
-		DCB041C319268CC000D945D2 /* SCFilterDescriptionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterDescriptionList.h; sourceTree = "<group>"; };
-		DCB041C419268CC000D945D2 /* SCFilterDescriptionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterDescriptionList.m; sourceTree = "<group>"; };
 		DCB041C61926907900D945D2 /* SCFilterDescriptionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterDescriptionParser.h; sourceTree = "<group>"; };
 		DCB041C71926907900D945D2 /* SCFilterDescriptionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterDescriptionParser.m; sourceTree = "<group>"; };
 		DCB041CA1926A3D800D945D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DCB041CC1926A8E200D945D2 /* SCFilterTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterTranslator.h; sourceTree = "<group>"; };
 		DCB041CD1926A8E200D945D2 /* SCFilterTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterTranslator.m; sourceTree = "<group>"; };
-		DCB041D21926C66900D945D2 /* SCFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilter.h; sourceTree = "<group>"; };
-		DCB041D31926C66900D945D2 /* SCFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilter.m; sourceTree = "<group>"; };
 		DCB041D51926C6F700D945D2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCB041E21926CA5E00D945D2 /* SCMainWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMainWindowController.h; sourceTree = "<group>"; };
 		DCB041E31926CA5E00D945D2 /* SCMainWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMainWindowController.m; sourceTree = "<group>"; };
@@ -98,12 +83,6 @@
 		DCB041E81926CC8D00D945D2 /* SCMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMainWindow.m; sourceTree = "<group>"; };
 		DCB041EA1926CE0700D945D2 /* SCMediaDisplayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMediaDisplayerView.h; sourceTree = "<group>"; };
 		DCB041EB1926CE0700D945D2 /* SCMediaDisplayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMediaDisplayerView.m; sourceTree = "<group>"; };
-		DCB041F31926D0D500D945D2 /* SCPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPlayer.h; sourceTree = "<group>"; };
-		DCB041F41926D0D500D945D2 /* SCPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPlayer.m; sourceTree = "<group>"; };
-		DCB041F51926D0D500D945D2 /* SCFilterGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterGroup.h; sourceTree = "<group>"; };
-		DCB041F61926D0D500D945D2 /* SCFilterGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterGroup.m; sourceTree = "<group>"; };
-		DCB041FA1926D1A300D945D2 /* SCImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCImageView.h; sourceTree = "<group>"; };
-		DCB041FB1926D1A300D945D2 /* SCImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCImageView.m; sourceTree = "<group>"; };
 		DCB041FD1926D1D500D945D2 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		DCB042011926F05600D945D2 /* SCFilterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterView.h; sourceTree = "<group>"; };
 		DCB042021926F05600D945D2 /* SCFilterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterView.m; sourceTree = "<group>"; };
@@ -141,15 +120,7 @@
 				DCB041D61926C6F700D945D2 /* QuartzCore.framework in Frameworks */,
 				DCB041CB1926A3D800D945D2 /* AVFoundation.framework in Frameworks */,
 				DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DCB041A41926817D00D945D2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DCB041AA1926817D00D945D2 /* Cocoa.framework in Frameworks */,
-				DCB041A91926817D00D945D2 /* XCTest.framework in Frameworks */,
+				DCA8EF94192BD8B300839BE2 /* SCRecorderMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +130,7 @@
 		DCB0417D1926817D00D945D2 = {
 			isa = PBXGroup;
 			children = (
+				DCA8EF93192BD8B300839BE2 /* SCRecorderMac.framework */,
 				DCB0418F1926817D00D945D2 /* Sources */,
 				DCB041881926817D00D945D2 /* Frameworks */,
 				DCB041871926817D00D945D2 /* Products */,
@@ -169,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				DCB041861926817D00D945D2 /* CoreImageShop.app */,
-				DCB041A71926817D00D945D2 /* CoreImageShopTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				DCB04213192A7B0F00D945D2 /* Configurations */,
-				DCB041F91926D0EA00D945D2 /* SCRecorderMac */,
 				DCB041C91926A3C000D945D2 /* Filters */,
 				DCB0419B1926817D00D945D2 /* SCAppDelegate.h */,
 				DCB0419C1926817D00D945D2 /* SCAppDelegate.m */,
@@ -240,39 +210,16 @@
 			children = (
 				DCB041CC1926A8E200D945D2 /* SCFilterTranslator.h */,
 				DCB041CD1926A8E200D945D2 /* SCFilterTranslator.m */,
-				DCB041BD1926896B00D945D2 /* SCFilterDescription.h */,
-				DCB041BE1926896B00D945D2 /* SCFilterDescription.m */,
-				DCB041C01926899F00D945D2 /* SCFilterParameterDescription.h */,
-				DCB041C11926899F00D945D2 /* SCFilterParameterDescription.m */,
-				DCB041C319268CC000D945D2 /* SCFilterDescriptionList.h */,
-				DCB041C419268CC000D945D2 /* SCFilterDescriptionList.m */,
 				DCB041C61926907900D945D2 /* SCFilterDescriptionParser.h */,
 				DCB041C71926907900D945D2 /* SCFilterDescriptionParser.m */,
-				DCB041D21926C66900D945D2 /* SCFilter.h */,
-				DCB041D31926C66900D945D2 /* SCFilter.m */,
 				DCB04227192AC48500D945D2 /* SCFilterCodeGenerator.h */,
 				DCB04228192AC48500D945D2 /* SCFilterCodeGenerator.m */,
 				DCB0422A192ACD5700D945D2 /* SCFilterParameterConverterManager.h */,
 				DCB0422B192ACD5700D945D2 /* SCFilterParameterConverterManager.m */,
 				DCB0422D192ACD9000D945D2 /* SCFilterParameterConverter.h */,
 				DCB0422E192ACD9000D945D2 /* SCFilterParameterConverter.m */,
-				DC633DDF192BCA4100050796 /* SCFilterGroup+Serialization.h */,
-				DC633DE0192BCA4100050796 /* SCFilterGroup+Serialization.m */,
 			);
 			name = Filters;
-			sourceTree = "<group>";
-		};
-		DCB041F91926D0EA00D945D2 /* SCRecorderMac */ = {
-			isa = PBXGroup;
-			children = (
-				DCB041FA1926D1A300D945D2 /* SCImageView.h */,
-				DCB041FB1926D1A300D945D2 /* SCImageView.m */,
-				DCB041F31926D0D500D945D2 /* SCPlayer.h */,
-				DCB041F41926D0D500D945D2 /* SCPlayer.m */,
-				DCB041F51926D0D500D945D2 /* SCFilterGroup.h */,
-				DCB041F61926D0D500D945D2 /* SCFilterGroup.m */,
-			);
-			name = SCRecorderMac;
 			sourceTree = "<group>";
 		};
 		DCB04213192A7B0F00D945D2 /* Configurations */ = {
@@ -307,6 +254,7 @@
 				DCB041821926817D00D945D2 /* Sources */,
 				DCB041831926817D00D945D2 /* Frameworks */,
 				DCB041841926817D00D945D2 /* Resources */,
+				DCA8EF96192BDA7400839BE2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -317,24 +265,6 @@
 			productReference = DCB041861926817D00D945D2 /* CoreImageShop.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DCB041A61926817D00D945D2 /* CoreImageShopTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DCB041BA1926817E00D945D2 /* Build configuration list for PBXNativeTarget "CoreImageShopTests" */;
-			buildPhases = (
-				DCB041A31926817D00D945D2 /* Sources */,
-				DCB041A41926817D00D945D2 /* Frameworks */,
-				DCB041A51926817D00D945D2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DCB041AC1926817D00D945D2 /* PBXTargetDependency */,
-			);
-			name = CoreImageShopTests;
-			productName = CoreImageShopTests;
-			productReference = DCB041A71926817D00D945D2 /* CoreImageShopTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -343,11 +273,6 @@
 			attributes = {
 				CLASSPREFIX = SC;
 				LastUpgradeCheck = 0510;
-				TargetAttributes = {
-					DCB041A61926817D00D945D2 = {
-						TestTargetID = DCB041851926817D00D945D2;
-					};
-				};
 			};
 			buildConfigurationList = DCB041811926817D00D945D2 /* Build configuration list for PBXProject "CoreImageShop" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -363,7 +288,6 @@
 			projectRoot = "";
 			targets = (
 				DCB041851926817D00D945D2 /* CoreImageShop */,
-				DCB041A61926817D00D945D2 /* CoreImageShopTests */,
 			);
 		};
 /* End PBXProject section */
@@ -382,13 +306,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DCB041A51926817D00D945D2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -399,20 +316,14 @@
 				DCB0421D192A8E7D00D945D2 /* NSTableView+Resize.m in Sources */,
 				DCB041E51926CA5E00D945D2 /* SCMainWindowController.m in Sources */,
 				DCB042031926F05600D945D2 /* SCFilterView.m in Sources */,
-				DC633DE1192BCA4100050796 /* SCFilterGroup+Serialization.m in Sources */,
 				DCB0419D1926817D00D945D2 /* SCAppDelegate.m in Sources */,
 				DCB041E91926CC8D00D945D2 /* SCMainWindow.m in Sources */,
 				DCB04226192ABA2E00D945D2 /* SCPositionCellView.m in Sources */,
 				DCB04220192AB15700D945D2 /* SCAngleCellView.m in Sources */,
 				DCB04212192A7B0C00D945D2 /* SCDistanceCellView.m in Sources */,
 				DCB04229192AC48500D945D2 /* SCFilterCodeGenerator.m in Sources */,
-				DCB041D41926C66900D945D2 /* SCFilter.m in Sources */,
-				DCB041F71926D0D500D945D2 /* SCPlayer.m in Sources */,
 				DCB041CE1926A8E200D945D2 /* SCFilterTranslator.m in Sources */,
-				DCB041C519268CC000D945D2 /* SCFilterDescriptionList.m in Sources */,
-				DCB041F81926D0D500D945D2 /* SCFilterGroup.m in Sources */,
 				DCB04219192A7DCD00D945D2 /* SCFilterParameterConfigurationCellView.m in Sources */,
-				DCB041FC1926D1A300D945D2 /* SCImageView.m in Sources */,
 				DCB04223192AB3D800D945D2 /* SCResetDefaultsCellView.m in Sources */,
 				DCB041961926817D00D945D2 /* main.m in Sources */,
 				DCB04216192A7C2D00D945D2 /* SCUnsupportedCellView.m in Sources */,
@@ -421,27 +332,10 @@
 				DCB041C81926907900D945D2 /* SCFilterDescriptionParser.m in Sources */,
 				DCB0420E192A78F100D945D2 /* SCFilterConfiguratorWindowController.m in Sources */,
 				DCB041EC1926CE0700D945D2 /* SCMediaDisplayerView.m in Sources */,
-				DCB041BF1926896B00D945D2 /* SCFilterDescription.m in Sources */,
-				DCB041C21926899F00D945D2 /* SCFilterParameterDescription.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DCB041A31926817D00D945D2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DCB041AC1926817D00D945D2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DCB041851926817D00D945D2 /* CoreImageShop */;
-			targetProxy = DCB041AB1926817D00D945D2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DCB041921926817D00D945D2 /* InfoPlist.strings */ = {
@@ -546,9 +440,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/CoreImageShop-Prefix.pch";
 				INFOPLIST_FILE = "Sources/CoreImageShop-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = Frameworks/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -559,51 +458,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/CoreImageShop-Prefix.pch";
 				INFOPLIST_FILE = "Sources/CoreImageShop-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = Frameworks/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		DCB041BB1926817E00D945D2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CoreImageShop.app/Contents/MacOS/CoreImageShop";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CoreImageShop/CoreImageShop-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "CoreImageShopTests/CoreImageShopTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		DCB041BC1926817E00D945D2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CoreImageShop.app/Contents/MacOS/CoreImageShop";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "CoreImageShop/CoreImageShop-Prefix.pch";
-				INFOPLIST_FILE = "CoreImageShopTests/CoreImageShopTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -624,15 +488,6 @@
 			buildConfigurations = (
 				DCB041B81926817E00D945D2 /* Debug */,
 				DCB041B91926817E00D945D2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DCB041BA1926817E00D945D2 /* Build configuration list for PBXNativeTarget "CoreImageShopTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DCB041BB1926817E00D945D2 /* Debug */,
-				DCB041BC1926817E00D945D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

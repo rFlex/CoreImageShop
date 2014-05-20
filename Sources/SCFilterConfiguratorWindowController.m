@@ -10,6 +10,7 @@
 #import "SCDistanceCellView.h"
 #import "SCUnsupportedCellView.h"
 #import "NSTableView+Resize.h"
+#import "SCFilterTranslator.h"
 
 @interface SCFilterConfiguratorWindowController ()
 
@@ -72,7 +73,7 @@
     
     cellView.filter = _filter;
     cellView.parameter = parameter;
-    cellView.titleTextField.stringValue = parameter.localizedName;
+    cellView.titleTextField.stringValue = [SCFilterTranslator parameterName:parameter.name];
     
     [cellView rebuild];
     

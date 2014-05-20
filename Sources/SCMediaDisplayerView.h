@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SCFilterGroup.h"
+#import <SCRecorderMac/SCFilterGroup.h>
 
 #define kMediaDisplayerClickNotification @"MediaDisplayerClicked"
 #define kMediaDisplayerClickLocationKey @"MediaDisplayerClickLocation"

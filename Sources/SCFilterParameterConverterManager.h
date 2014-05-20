@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SCFilterParameterConverter.h"
-#import "SCFilterParameterDescription.h"
+#import <SCRecorderMac/SCRecorderMac.h>
 
 @interface SCFilterParameterConverterManager : NSObject
 

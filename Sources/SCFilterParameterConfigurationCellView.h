@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SCFilter.h"
+#import <SCRecorderMac/SCFilter.h>
 
 @interface SCFilterParameterConfigurationCellView : NSTableCellView
 

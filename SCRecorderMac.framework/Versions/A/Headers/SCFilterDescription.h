@@ -15,8 +15,6 @@
 @property (readonly, nonatomic) NSString *name;
 @property (readonly, nonatomic) NSArray *parameters;
 @property (readonly, nonatomic) NSString *category;
-@property (readonly, nonatomic) NSString *localizedCategory;
-@property (readonly, nonatomic) NSString *localizedName;
 
 - (id)initWithName:(NSString *)name andCategory:(NSString *)category;
 - (void)addParameter:(SCFilterParameterDescription *)parameter;

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SCFilterDescriptionList.h"
+#import <SCRecorderMac/SCRecorderMac.h>
 
 @interface SCFilterDescriptionParser : NSObject
 

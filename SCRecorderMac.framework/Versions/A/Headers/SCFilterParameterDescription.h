@@ -11,7 +11,6 @@
 @interface SCFilterParameterDescription : NSObject<NSCoding>
 
 @property (readonly, nonatomic) NSString *name;
-@property (readonly, nonatomic) NSString *localizedName;
 @property (copy, nonatomic) NSString *type;
 @property (strong, nonatomic) id<NSCoding> minValue;
 @property (strong, nonatomic) id<NSCoding> maxValue;

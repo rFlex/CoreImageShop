@@ -10,10 +10,10 @@
 #import "SCFilterView.h"
 #import "SCMediaDisplayerView.h"
 #import "SCFilterConfiguratorWindowController.h"
-#import "SCFilterGroup+Serialization.h"
+#import "SCFilterTranslator.h"
 
 @interface SCMainWindowController () {
-    NSMutableArray *_filters;
+    SCFilterGroup *_filterGroup;
     NSMutableArray *_currentlyDisplayedVC;
 }
 
@@ -25,7 +25,7 @@
 {
     self = [super initWithWindow:window];
     if (self) {
-        _filters = [NSMutableArray new];
+        _filterGroup = [[SCFilterGroup alloc] init];
         _currentlyDisplayedVC = [NSMutableArray new];
     }
     return self;
@@ -43,9 +43,9 @@
     filter.delegate = self;
     [self.filtersTableView beginUpdates];
     
-    [self.filtersTableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:_filters.count] withAnimation:NSTableViewAnimationSlideUp];
+    [self.filtersTableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:_filterGroup.filters.count] withAnimation:NSTableViewAnimationSlideUp];
     
-    [_filters addObject:filter];
+    [_filterGroup addFilter:filter];
     [self rebuildFilterPipeline];
     
     [self.filtersTableView endUpdates];
@@ -57,7 +57,7 @@
         [_currentlyDisplayedVC removeObject:configurator];
     }
     
-    [_filters removeObject:filter];
+    [_filterGroup removeFilter:filter];
     [self rebuildFilterPipeline];
 }
 
@@ -76,7 +76,7 @@
 }
 
 - (SCFilter *)filterForIndex:(NSInteger)index {
-    return [_filters objectAtIndex:index];
+    return [_filterGroup.filters objectAtIndex:index];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
@@ -128,7 +128,13 @@
 }
 
 - (void)applyDocument:(NSData *)data {
-    _filters = [[NSKeyedUnarchiver unarchiveObjectWithData:data] mutableCopy];
+    id obj = [SCFilterGroup filterGroupWithData:data];
+    
+    if ([obj isKindOfClass:[SCFilterGroup class]]) {
+        _filterGroup = obj;
+    } else {
+        _filterGroup = [SCFilterGroup filterGroupWithFilters:obj];
+    }
     
     [self.filtersTableView reloadData];
     [self rebuildFilterPipeline];
@@ -140,7 +146,7 @@
 }
 
 - (void)rebuildFilterPipeline {
-    self.mediaDisplayerView.filterGroup = [SCFilterGroup filterGroupWithSCFilters:_filters];
+    self.mediaDisplayerView.filterGroup = _filterGroup;
 }
 
 - (IBAction)deleteActivated:(NSButton *)sender {
@@ -149,29 +155,29 @@
     [self.filtersTableView beginUpdates];
     
     [self.filtersTableView removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:index] withAnimation:NSTableViewAnimationEffectFade];
-    [_filters removeObjectAtIndex:index];
+    [_filterGroup removeFilterAtIndex:index];
     [self rebuildFilterPipeline];
     
     [self.filtersTableView endUpdates];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return _filters.count;
+    return _filterGroup.filters.count;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
     SCFilterView *filterView = [tableView makeViewWithIdentifier:@"SCFilterView" owner:self];
-    SCFilter *filter = [_filters objectAtIndex:row];
+    SCFilter *filter = [_filterGroup.filters objectAtIndex:row];
     
-    filterView.title.stringValue = filter.filterDescription.localizedName;
+    filterView.title.stringValue = [SCFilterTranslator filterName:filter.filterDescription.name];
     filterView.enabledCheckbox.state = (NSInteger)filter.enabled;
     
     return filterView;
 }
 
 - (NSArray *)filters {
-    return _filters;
+    return _filterGroup.filters;
 }
 
 @end

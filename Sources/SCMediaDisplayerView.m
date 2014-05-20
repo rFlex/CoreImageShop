@@ -8,12 +8,12 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "SCMediaDisplayerView.h"
-#import "SCPlayer.h"
 
 @interface SCMediaDisplayerView() {
     NSImageView *_imageView;
-    SCPlayer *_player;
+    AVPlayer *_player;
     NSButton *_playButton;
+    AVPlayerLayer *_playerLayer;
 }
 
 @end
@@ -29,10 +29,15 @@
         self.layerUsesCoreImageFilters = YES;
         [self setWantsLayer:YES];
         _imageView = [[NSImageView alloc] init];
-        _player = [SCPlayer player];
-        _player.outputView = self;
-        _player.shouldLoop = YES;
+        _player = [[AVPlayer alloc] init];
+        _player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
         _player.volume = 0;
+        
+        _playerLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
+        _playerLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        [self.layer addSublayer:_playerLayer];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playReachedEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
         
         [_imageView unregisterDraggedTypes];
         
@@ -49,6 +54,14 @@
     }
     
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)playReachedEnd:(NSNotification *)not {
+    [_player seekToTime:kCMTimeZero];
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
@@ -73,7 +86,7 @@
 - (void)resizeWithOldSuperviewSize:(NSSize)oldSize {
     [super resizeWithOldSuperviewSize:oldSize];
     
-    [_player resizePlayerLayerToFitOutputView];
+    _playerLayer.bounds = self.bounds;
     _imageView.frame = self.bounds;
 }
 
@@ -105,7 +118,7 @@
 }
 
 - (void)playPressed:(id)sender {
-    if (_player.isPlaying) {
+    if (_player.rate > 0) {
         [_player pause];
     } else {
         [_player play];
@@ -120,7 +133,7 @@
         if (_playButton.superview == nil) {
             [self addSubview:_playButton];
         }
-        if (_player.isPlaying) {
+        if (_player.rate > 0) {
             _playButton.title = @"Pause";
         } else {
             _playButton.title = @"Play";
@@ -133,10 +146,10 @@
     AVAsset *asset = [AVURLAsset URLAssetWithURL:mediaUrl options:nil];
     if (asset.isPlayable) {
         _imageView.image = nil;
-        [_player setItemByAsset:asset];
+        [_player replaceCurrentItemWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
         [_player play];
     } else {
-        [_player setItem:nil];
+        [_player replaceCurrentItemWithPlayerItem:nil];
         NSImage *image = [[NSImage alloc] initWithContentsOfURL:mediaUrl];
         
         if (image != nil) {

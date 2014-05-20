@@ -49,9 +49,7 @@
             return [NSString stringWithFormat:@"[CIColor colorWithString:%@]", value.stringRepresentation];
         }];
         
-        [self addParameterConverter:colorVector forParameterType:@"CIAttributeTypeOpaqueColor"];
-    
-        
+        [self addParameterConverter:colorVector forParameterType:@"CIAttributeTypeOpaqueColor"];        
     }
     
     return self;

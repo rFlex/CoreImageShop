@@ -119,7 +119,13 @@
                             </menuItem>
                             <menuItem title="Redo" keyEquivalent="Z" id="6dh-zS-Vam">
                                 <connections>
-                                    <action selector="redo:" target="-1" id="oIA-Rs-6OD"/>
+                                    <action selector="editName:" target="Voe-Tx-rLC" id="KYr-a0-EWI"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Edit Filter Name" tag="1" id="0sy-fz-Xpu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="editName:" target="Voe-Tx-rLC" id="mfA-U0-3PV"/>
                                 </connections>
                             </menuItem>
                         </items>
@@ -140,8 +146,7 @@
                                                 <action selector="changeFilterDescriptionFile:" target="Voe-Tx-rLC" id="tRZ-Oq-ysN"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Reload current" id="fYu-7j-hLe">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="Reload current" keyEquivalent="r" id="fYu-7j-hLe">
                                             <connections>
                                                 <action selector="reloadFileDescriptionFile:" target="Voe-Tx-rLC" id="ddp-zn-74U"/>
                                             </connections>

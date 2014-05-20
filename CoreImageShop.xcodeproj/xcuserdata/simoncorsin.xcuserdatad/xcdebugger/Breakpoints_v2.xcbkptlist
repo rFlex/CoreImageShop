@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SCAppDelegate.m"
-            timestampString = "422301172.349909"
+            timestampString = "422315183.115116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "-changeFilterDescriptionFile:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SCAppDelegate.m"
-            timestampString = "422301172.349909"
+            timestampString = "422315183.115116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
             landmarkName = "-changeFilterDescriptionFile:"
             landmarkType = "5">
          </BreakpointContent>

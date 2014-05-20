@@ -86,7 +86,7 @@
 - (void)resizeWithOldSuperviewSize:(NSSize)oldSize {
     [super resizeWithOldSuperviewSize:oldSize];
     
-    _playerLayer.bounds = self.bounds;
+    _playerLayer.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
     _imageView.frame = self.bounds;
 }
 
@@ -167,7 +167,7 @@
 - (void)setFilterGroup:(SCFilterGroup *)filterGroup {
     _filterGroup = filterGroup;
     
-    [self.layer setFilters:filterGroup.filters];
+    [self.layer setFilters:filterGroup.coreImageFilters];
 }
 
 @end

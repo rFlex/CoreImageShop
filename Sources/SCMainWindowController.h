@@ -18,9 +18,11 @@
 @property (readonly, nonatomic) NSArray *filters;
 @property (strong, nonatomic) NSURL *fileUrl;
 @property (readonly, nonatomic) NSData *documentData;
+@property (strong, nonatomic) SCFilterGroup *filterGroup;
 
 - (void)addFilter:(SCFilter *)filter;
 - (void)removeFilter:(SCFilter *)filter;
+- (void)updateTitle;
 
 - (void)applyDocument:(NSData *)data;
 

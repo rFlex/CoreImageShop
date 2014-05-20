@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DCA8EF94192BD8B300839BE2 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA8EF93192BD8B300839BE2 /* SCRecorderMac.framework */; };
-		DCA8EF97192BDA8000839BE2 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCA8EF93192BD8B300839BE2 /* SCRecorderMac.framework */; };
+		DC0FB1CC192BFD3C001AE827 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */; };
+		DC0FB1CD192BFD75001AE827 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */; };
 		DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
 		DCB041941926817D00D945D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB041921926817D00D945D2 /* InfoPlist.strings */; };
 		DCB041961926817D00D945D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041951926817D00D945D2 /* main.m */; };
@@ -45,16 +45,16 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 10;
+			dstSubfolderSpec = 16;
 			files = (
-				DCA8EF97192BDA8000839BE2 /* SCRecorderMac.framework in CopyFiles */,
+				DC0FB1CC192BFD3C001AE827 /* SCRecorderMac.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DCA8EF93192BD8B300839BE2 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
+		DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
 		DCB041861926817D00D945D2 /* CoreImageShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041891926817D00D945D2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DCB0418C1926817D00D945D2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -119,8 +119,8 @@
 				DCB041FE1926D1D500D945D2 /* GLKit.framework in Frameworks */,
 				DCB041D61926C6F700D945D2 /* QuartzCore.framework in Frameworks */,
 				DCB041CB1926A3D800D945D2 /* AVFoundation.framework in Frameworks */,
+				DC0FB1CD192BFD75001AE827 /* SCRecorderMac.framework in Frameworks */,
 				DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */,
-				DCA8EF94192BD8B300839BE2 /* SCRecorderMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +130,7 @@
 		DCB0417D1926817D00D945D2 = {
 			isa = PBXGroup;
 			children = (
-				DCA8EF93192BD8B300839BE2 /* SCRecorderMac.framework */,
+				DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */,
 				DCB0418F1926817D00D945D2 /* Sources */,
 				DCB041881926817D00D945D2 /* Frameworks */,
 				DCB041871926817D00D945D2 /* Products */,

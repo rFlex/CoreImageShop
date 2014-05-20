@@ -66,10 +66,8 @@
 }
 
 - (void)save:(SCMainWindowController *)displayedWindow to:(NSURL *)url {
-    NSData *data = displayedWindow.documentData;
     NSError *error = nil;
-    
-    [data writeToURL:url options:NSDataWritingAtomic error:&error];
+    [displayedWindow.filterGroup writeToFile:url error:&error];
     
     if (error == nil) {
         displayedWindow.fileUrl = url;
@@ -226,6 +224,43 @@
     }
 }
 
+- (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {
+    NSAlert *alert = [NSAlert alertWithMessageText: prompt
+                                     defaultButton:@"OK"
+                                   alternateButton:@"Cancel"
+                                       otherButton:nil
+                         informativeTextWithFormat:@""];
+    
+    NSTextField *input = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
+    
+    if (defaultValue == nil) {
+        defaultValue = @"";
+    }
+    
+    [input setStringValue:defaultValue];
+    
+    [alert setAccessoryView:input];
+    NSInteger button = [alert runModal];
+    
+    if (button == NSAlertDefaultReturn) {
+        [input validateEditing];
+        return [input stringValue];
+    } else if (button == NSAlertAlternateReturn) {
+        return nil;
+    } else {
+        return nil;
+    }
+}
+
+- (IBAction)editName:(id)sender {
+    NSString *entered = [self input:@"Enter the filter name" defaultValue:_displayedWindow.filterGroup.name];
+    
+    if (entered != nil) {
+        _displayedWindow.filterGroup.name = entered;
+        [_displayedWindow updateTitle];
+    }
+}
+
 - (void)addFilterFired:(NSMenuItem *)item {
     SCFilterDescription *filterDescription = [_filterDescriptions filterDescriptionForId:item.tag];
     
@@ -254,7 +289,6 @@
         NSAlert *alert = [NSAlert alertWithMessageText:@"Failed to open filter descriptions file" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Error: %@", parser.error.localizedDescription];
         [alert runModal];
     }
-
 }
 
 - (IBAction)changeFilterDescriptionFile:(id)sender {

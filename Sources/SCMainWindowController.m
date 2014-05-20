@@ -13,7 +13,6 @@
 #import "SCFilterTranslator.h"
 
 @interface SCMainWindowController () {
-    SCFilterGroup *_filterGroup;
     NSMutableArray *_currentlyDisplayedVC;
 }
 
@@ -31,12 +30,10 @@
     return self;
 }
 
-- (void)windowDidLoad
-{
+- (void)windowDidLoad {
     [super windowDidLoad];
 
     self.filtersTableView.dataSource = self;
-    
 }
 
 - (void)addFilter:(SCFilter *)filter {
@@ -127,22 +124,30 @@
     return [NSKeyedArchiver archivedDataWithRootObject:self.filters];
 }
 
+- (void)updateTitle {
+    self.window.title = [NSString stringWithFormat:@"%@ - %@", _filterGroup.name, _fileUrl.lastPathComponent];
+}
+
 - (void)applyDocument:(NSData *)data {
-    id obj = [SCFilterGroup filterGroupWithData:data];
+    NSError *error = nil;
     
-    if ([obj isKindOfClass:[SCFilterGroup class]]) {
-        _filterGroup = obj;
+    SCFilterGroup *filterGroup = [SCFilterGroup filterGroupWithData:data error:&error];
+    
+    if (error == nil) {
+        _filterGroup = filterGroup;
+        [self.filtersTableView reloadData];
+        [self rebuildFilterPipeline];
     } else {
-        _filterGroup = [SCFilterGroup filterGroupWithFilters:obj];
+        [[NSAlert alertWithError:error] runModal];
     }
     
-    [self.filtersTableView reloadData];
-    [self rebuildFilterPipeline];
+    [self updateTitle];
 }
 
 - (void)setFileUrl:(NSURL *)fileUrl {
     _fileUrl = fileUrl;
-    self.window.title = fileUrl.lastPathComponent.stringByDeletingPathExtension;
+    
+    [self updateTitle];
 }
 
 - (void)rebuildFilterPipeline {
@@ -166,7 +171,6 @@
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    
     SCFilterView *filterView = [tableView makeViewWithIdentifier:@"SCFilterView" owner:self];
     SCFilter *filter = [_filterGroup.filters objectAtIndex:row];
     

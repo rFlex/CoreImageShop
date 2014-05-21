@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC0FB1CC192BFD3C001AE827 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */; };
-		DC0FB1CD192BFD75001AE827 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */; };
 		DC0FB1D0192C14FF001AE827 /* SCRectangleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */; };
 		DC0FB1D2192C1D54001AE827 /* available_filters.cis in Resources */ = {isa = PBXBuildFile; fileRef = DC0FB1D1192C1D54001AE827 /* available_filters.cis */; };
+		DC4506A0192C262000993EC7 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC45069F192C262000993EC7 /* SCRecorderMac.framework */; };
+		DC4506A1192C262300993EC7 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC45069F192C262000993EC7 /* SCRecorderMac.framework */; };
 		DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
 		DCB041941926817D00D945D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB041921926817D00D945D2 /* InfoPlist.strings */; };
 		DCB041961926817D00D945D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041951926817D00D945D2 /* main.m */; };
@@ -47,19 +47,19 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 16;
+			dstSubfolderSpec = 10;
 			files = (
-				DC0FB1CC192BFD3C001AE827 /* SCRecorderMac.framework in CopyFiles */,
+				DC4506A1192C262300993EC7 /* SCRecorderMac.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
 		DC0FB1CE192C14FF001AE827 /* SCRectangleCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRectangleCellView.h; sourceTree = "<group>"; };
 		DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRectangleCellView.m; sourceTree = "<group>"; };
 		DC0FB1D1192C1D54001AE827 /* available_filters.cis */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = available_filters.cis; path = ../available_filters.cis; sourceTree = "<group>"; };
+		DC45069F192C262000993EC7 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
 		DCB041861926817D00D945D2 /* CoreImageShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041891926817D00D945D2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DCB0418C1926817D00D945D2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -124,8 +124,8 @@
 				DCB041FE1926D1D500D945D2 /* GLKit.framework in Frameworks */,
 				DCB041D61926C6F700D945D2 /* QuartzCore.framework in Frameworks */,
 				DCB041CB1926A3D800D945D2 /* AVFoundation.framework in Frameworks */,
-				DC0FB1CD192BFD75001AE827 /* SCRecorderMac.framework in Frameworks */,
 				DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */,
+				DC4506A0192C262000993EC7 /* SCRecorderMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +135,7 @@
 		DCB0417D1926817D00D945D2 = {
 			isa = PBXGroup;
 			children = (
-				DC0FB1CA192BFD2B001AE827 /* SCRecorderMac.framework */,
+				DC45069F192C262000993EC7 /* SCRecorderMac.framework */,
 				DCB0418F1926817D00D945D2 /* Sources */,
 				DCB041881926817D00D945D2 /* Frameworks */,
 				DCB041871926817D00D945D2 /* Products */,
@@ -457,7 +457,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/CoreImageShop-Prefix.pch";
 				INFOPLIST_FILE = "Sources/CoreImageShop-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = Frameworks/;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -475,7 +475,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sources/CoreImageShop-Prefix.pch";
 				INFOPLIST_FILE = "Sources/CoreImageShop-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = Frameworks/;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

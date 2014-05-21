@@ -295,6 +295,10 @@
     }
 }
 
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+    return _projectVCs.count == 0;
+}
+
 - (IBAction)changeFilterDescriptionFile:(id)sender {
     NSOpenPanel *open = [NSOpenPanel openPanel];
     

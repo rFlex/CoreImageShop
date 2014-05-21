@@ -161,6 +161,10 @@
     SCFilterGroup *filterGroup = [SCFilterGroup filterGroupWithData:data error:&error];
     
     if (error == nil) {
+        for (SCFilter *filter in filterGroup.filters) {
+            filter.delegate = self;
+        }
+        
         _filterGroup = filterGroup;
         [self.filtersTableView reloadData];
         [self rebuildFilterPipeline];

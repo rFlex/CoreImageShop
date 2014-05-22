@@ -99,12 +99,6 @@
                                     <action selector="saveDocumentAs:" target="-1" id="mDf-zr-I0C"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Export Code…" tag="1" id="hAT-c6-kGu">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <action selector="exportCode:" target="Voe-Tx-rLC" id="vyb-iw-NpJ"/>
-                                </connections>
-                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>
@@ -133,35 +127,7 @@
                 </menuItem>
                 <menuItem title="Filters" id="jxT-CU-nIS">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Filters" id="GEO-Iw-cKr">
-                        <items>
-                            <menuItem isSeparatorItem="YES" id="Gbg-Se-hHX"/>
-                            <menuItem title="Filter Description File" id="Dsp-wX-Cpg">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Filter Description File" id="Rua-4l-mkt">
-                                    <items>
-                                        <menuItem title="Change..." id="lLC-3g-kTt">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="changeFilterDescriptionFile:" target="Voe-Tx-rLC" id="tRZ-Oq-ysN"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Load embedded" id="p3Z-O8-RWR">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="loadEmbeddedFileDescriptionFile:" target="Voe-Tx-rLC" id="HTk-oT-Fu9"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Reload current" keyEquivalent="r" id="fYu-7j-hLe">
-                                            <connections>
-                                                <action selector="reloadFileDescriptionFile:" target="Voe-Tx-rLC" id="ddp-zn-74U"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                        </items>
-                    </menu>
+                    <menu key="submenu" title="Filters" id="GEO-Iw-cKr"/>
                 </menuItem>
                 <menuItem title="Window" id="aUF-d1-5bR">
                     <modifierMask key="keyEquivalentModifierMask"/>

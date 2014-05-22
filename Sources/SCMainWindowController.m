@@ -12,6 +12,7 @@
 #import "SCFilterConfiguratorWindowController.h"
 #import "SCFilterTranslator.h"
 #import "SCAppDelegate.h"
+#import "CIFilter+Categories.h"
 
 @interface SCMainWindowController () {
     NSMutableArray *_currentlyDisplayedVC;
@@ -28,33 +29,20 @@
     if (self) {
         _filterGroup = [[SCFilterGroup alloc] init];
         _currentlyDisplayedVC = [NSMutableArray new];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filtersChanged:) name:kFilterDescriptionsChangedNotification object:nil];
-        [self updateForFilterDescriptions:[SCAppDelegate sharedInstance].filterDescriptions];
+        
+        NSMutableArray *availableFilters = [NSMutableArray new];
+        for (NSString *categoryName in [CIFilter allCategoryNames]) {
+            [availableFilters addObject:categoryName];
+            
+            for (NSString *filterName in [CIFilter filterNamesInCategory:categoryName]) {
+                [availableFilters addObject:filterName];
+            }
+        }
+        _availableFilters = availableFilters;
+        
+        [self.filtersTableView reloadData];
     }
     return self;
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)filtersChanged:(NSNotification *)notification {
-    [self updateForFilterDescriptions:notification.object];
-}
-
-- (void)updateForFilterDescriptions:(SCFilterDescriptionList *)filterDescriptions {
-    NSMutableArray *availableFilters = [NSMutableArray new];
-    
-    for (NSString *category in filterDescriptions.allCategories) {
-        [availableFilters addObject:[SCFilterTranslator categoryName:category]];
-        for (SCFilterDescription *filter in [filterDescriptions filterDescriptionsForCategory:category]) {
-            [availableFilters addObject:filter];
-        }
-    }
-    
-    _availableFilters = availableFilters;
-    
-    [self.availableFiltersTableView reloadData];
 }
 
 - (void)windowDidLoad {
@@ -85,7 +73,7 @@
     [self rebuildFilterPipeline];
 }
 
-- (void)filter:(SCFilter *)filter didChangeParameter:(SCFilterParameterDescription *)parameterDescription {
+- (void)filter:(SCFilter *)filter didChangeParameter:(NSString *)parameterKey {
     [self refreshDisplay];
 }
 
@@ -199,9 +187,9 @@
 
 - (IBAction)addActivated:(id)sender {
     NSInteger index = [self.availableFiltersTableView rowForView:sender];
-    SCFilterDescription *filterDescription = [_availableFilters objectAtIndex:index];
+    NSString *filter = [_availableFilters objectAtIndex:index];
     
-    [self addFilter:[SCFilter filterWithFilterDescription:filterDescription]];
+    [self addFilter:[SCFilter filterWithName:filter]];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
@@ -217,25 +205,23 @@
         SCFilterView *filterView = [tableView makeViewWithIdentifier:@"SCFilterView" owner:self];
         SCFilter *filter = [_filterGroup.filters objectAtIndex:row];
         
-        filterView.title.stringValue = [SCFilterTranslator filterName:filter.filterDescription.name];
+        filterView.title.stringValue = [filter.coreImageFilter.attributes objectForKey:kCIAttributeFilterDisplayName];
         filterView.enabledCheckbox.state = (NSInteger)filter.enabled;
         
         return filterView;
     } else {
-        id object = [_availableFilters objectAtIndex:row];
+        NSString *filter = [_availableFilters objectAtIndex:row];
         
         NSTableCellView *view = nil;
         
         NSString *text = nil;
         
-        if ([object isKindOfClass:[NSString class]]) {
+        if ([filter hasPrefix:@"CICategory"]) {
             view = [tableView makeViewWithIdentifier:@"Category" owner:self];
-            text = object;
+            text = [SCFilterTranslator categoryName:filter];
         } else {
             view = [tableView makeViewWithIdentifier:@"Filter" owner:self];
-            SCFilterDescription *filterDescription = object;
-            text = [SCFilterTranslator filterName:filterDescription.name];
-            text = [NSString stringWithFormat:@"  %@", text];
+            text = [NSString stringWithFormat:@"  %@", [SCFilterTranslator filterName:filter]];
         }
         
         view.textField.stringValue = text;

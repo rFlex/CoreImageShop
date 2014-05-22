@@ -39,8 +39,10 @@
 - (void)rebuild {
     [super rebuild];
     
-    self.valueSlider.minValue = self.parameter.minValueAsDouble;
-    self.valueSlider.maxValue = self.parameter.maxValueAsDouble;
+    NSDictionary *value = [self.filter.coreImageFilter.attributes  objectForKey:self.parameterName];
+    
+    self.valueSlider.minValue = ((NSNumber *)[value objectForKey:kCIAttributeSliderMin]).doubleValue;
+    self.valueSlider.maxValue = ((NSNumber *)[value objectForKey:kCIAttributeSliderMax]).doubleValue;
 }
 
 - (void)updateWithParameterValue:(id)parameterValue {

@@ -8,9 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DC0FB1D0192C14FF001AE827 /* SCRectangleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */; };
-		DC0FB1D2192C1D54001AE827 /* available_filters.cis in Resources */ = {isa = PBXBuildFile; fileRef = DC0FB1D1192C1D54001AE827 /* available_filters.cis */; };
-		DC4506A0192C262000993EC7 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC45069F192C262000993EC7 /* SCRecorderMac.framework */; };
-		DC4506A1192C262300993EC7 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC45069F192C262000993EC7 /* SCRecorderMac.framework */; };
+		DC4506A3192C44E700993EC7 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4506A2192C44E700993EC7 /* Quartz.framework */; };
+		DC891808192E89C3006FAE71 /* CIFilter+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = DC891807192E89C3006FAE71 /* CIFilter+Categories.m */; };
+		DC891815192EAA39006FAE71 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC891814192EAA39006FAE71 /* SCRecorderMac.framework */; };
+		DC891816192EAA3C006FAE71 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC891814192EAA39006FAE71 /* SCRecorderMac.framework */; };
 		DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
 		DCB041941926817D00D945D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB041921926817D00D945D2 /* InfoPlist.strings */; };
 		DCB041961926817D00D945D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041951926817D00D945D2 /* main.m */; };
@@ -18,7 +19,6 @@
 		DCB0419D1926817D00D945D2 /* SCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB0419C1926817D00D945D2 /* SCAppDelegate.m */; };
 		DCB041A01926817D00D945D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB0419E1926817D00D945D2 /* MainMenu.xib */; };
 		DCB041A21926817D00D945D2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB041A11926817D00D945D2 /* Images.xcassets */; };
-		DCB041C81926907900D945D2 /* SCFilterDescriptionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041C71926907900D945D2 /* SCFilterDescriptionParser.m */; };
 		DCB041CB1926A3D800D945D2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041CA1926A3D800D945D2 /* AVFoundation.framework */; };
 		DCB041CE1926A8E200D945D2 /* SCFilterTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041CD1926A8E200D945D2 /* SCFilterTranslator.m */; };
 		DCB041D61926C6F700D945D2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041D51926C6F700D945D2 /* QuartzCore.framework */; };
@@ -37,9 +37,6 @@
 		DCB04220192AB15700D945D2 /* SCAngleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB0421F192AB15700D945D2 /* SCAngleCellView.m */; };
 		DCB04223192AB3D800D945D2 /* SCResetDefaultsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB04222192AB3D800D945D2 /* SCResetDefaultsCellView.m */; };
 		DCB04226192ABA2E00D945D2 /* SCPositionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB04225192ABA2E00D945D2 /* SCPositionCellView.m */; };
-		DCB04229192AC48500D945D2 /* SCFilterCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB04228192AC48500D945D2 /* SCFilterCodeGenerator.m */; };
-		DCB0422C192ACD5700D945D2 /* SCFilterParameterConverterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB0422B192ACD5700D945D2 /* SCFilterParameterConverterManager.m */; };
-		DCB0422F192ACD9000D945D2 /* SCFilterParameterConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB0422E192ACD9000D945D2 /* SCFilterParameterConverter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,7 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC4506A1192C262300993EC7 /* SCRecorderMac.framework in CopyFiles */,
+				DC891816192EAA3C006FAE71 /* SCRecorderMac.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,8 +55,10 @@
 /* Begin PBXFileReference section */
 		DC0FB1CE192C14FF001AE827 /* SCRectangleCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRectangleCellView.h; sourceTree = "<group>"; };
 		DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRectangleCellView.m; sourceTree = "<group>"; };
-		DC0FB1D1192C1D54001AE827 /* available_filters.cis */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = available_filters.cis; path = ../available_filters.cis; sourceTree = "<group>"; };
-		DC45069F192C262000993EC7 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
+		DC4506A2192C44E700993EC7 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
+		DC891806192E89C3006FAE71 /* CIFilter+Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIFilter+Categories.h"; sourceTree = "<group>"; };
+		DC891807192E89C3006FAE71 /* CIFilter+Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIFilter+Categories.m"; sourceTree = "<group>"; };
+		DC891814192EAA39006FAE71 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
 		DCB041861926817D00D945D2 /* CoreImageShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041891926817D00D945D2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DCB0418C1926817D00D945D2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -75,8 +74,6 @@
 		DCB0419F1926817D00D945D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		DCB041A11926817D00D945D2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DCB041A81926817D00D945D2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		DCB041C61926907900D945D2 /* SCFilterDescriptionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterDescriptionParser.h; sourceTree = "<group>"; };
-		DCB041C71926907900D945D2 /* SCFilterDescriptionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterDescriptionParser.m; sourceTree = "<group>"; };
 		DCB041CA1926A3D800D945D2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DCB041CC1926A8E200D945D2 /* SCFilterTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterTranslator.h; sourceTree = "<group>"; };
 		DCB041CD1926A8E200D945D2 /* SCFilterTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterTranslator.m; sourceTree = "<group>"; };
@@ -108,12 +105,6 @@
 		DCB04222192AB3D800D945D2 /* SCResetDefaultsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCResetDefaultsCellView.m; sourceTree = "<group>"; };
 		DCB04224192ABA2E00D945D2 /* SCPositionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPositionCellView.h; sourceTree = "<group>"; };
 		DCB04225192ABA2E00D945D2 /* SCPositionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPositionCellView.m; sourceTree = "<group>"; };
-		DCB04227192AC48500D945D2 /* SCFilterCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterCodeGenerator.h; sourceTree = "<group>"; };
-		DCB04228192AC48500D945D2 /* SCFilterCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterCodeGenerator.m; sourceTree = "<group>"; };
-		DCB0422A192ACD5700D945D2 /* SCFilterParameterConverterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterParameterConverterManager.h; sourceTree = "<group>"; };
-		DCB0422B192ACD5700D945D2 /* SCFilterParameterConverterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterParameterConverterManager.m; sourceTree = "<group>"; };
-		DCB0422D192ACD9000D945D2 /* SCFilterParameterConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterParameterConverter.h; sourceTree = "<group>"; };
-		DCB0422E192ACD9000D945D2 /* SCFilterParameterConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterParameterConverter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,11 +112,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4506A3192C44E700993EC7 /* Quartz.framework in Frameworks */,
 				DCB041FE1926D1D500D945D2 /* GLKit.framework in Frameworks */,
+				DC891815192EAA39006FAE71 /* SCRecorderMac.framework in Frameworks */,
 				DCB041D61926C6F700D945D2 /* QuartzCore.framework in Frameworks */,
 				DCB041CB1926A3D800D945D2 /* AVFoundation.framework in Frameworks */,
 				DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */,
-				DC4506A0192C262000993EC7 /* SCRecorderMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +127,7 @@
 		DCB0417D1926817D00D945D2 = {
 			isa = PBXGroup;
 			children = (
-				DC45069F192C262000993EC7 /* SCRecorderMac.framework */,
+				DC891814192EAA39006FAE71 /* SCRecorderMac.framework */,
 				DCB0418F1926817D00D945D2 /* Sources */,
 				DCB041881926817D00D945D2 /* Frameworks */,
 				DCB041871926817D00D945D2 /* Products */,
@@ -153,6 +145,7 @@
 		DCB041881926817D00D945D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC4506A2192C44E700993EC7 /* Quartz.framework */,
 				DCB041FD1926D1D500D945D2 /* GLKit.framework */,
 				DCB041D51926C6F700D945D2 /* QuartzCore.framework */,
 				DCB041CA1926A3D800D945D2 /* AVFoundation.framework */,
@@ -201,7 +194,6 @@
 		DCB041901926817D00D945D2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DC0FB1D1192C1D54001AE827 /* available_filters.cis */,
 				DCB041911926817D00D945D2 /* CoreImageShop-Info.plist */,
 				DCB041921926817D00D945D2 /* InfoPlist.strings */,
 				DCB041951926817D00D945D2 /* main.m */,
@@ -216,14 +208,8 @@
 			children = (
 				DCB041CC1926A8E200D945D2 /* SCFilterTranslator.h */,
 				DCB041CD1926A8E200D945D2 /* SCFilterTranslator.m */,
-				DCB041C61926907900D945D2 /* SCFilterDescriptionParser.h */,
-				DCB041C71926907900D945D2 /* SCFilterDescriptionParser.m */,
-				DCB04227192AC48500D945D2 /* SCFilterCodeGenerator.h */,
-				DCB04228192AC48500D945D2 /* SCFilterCodeGenerator.m */,
-				DCB0422A192ACD5700D945D2 /* SCFilterParameterConverterManager.h */,
-				DCB0422B192ACD5700D945D2 /* SCFilterParameterConverterManager.m */,
-				DCB0422D192ACD9000D945D2 /* SCFilterParameterConverter.h */,
-				DCB0422E192ACD9000D945D2 /* SCFilterParameterConverter.m */,
+				DC891806192E89C3006FAE71 /* CIFilter+Categories.h */,
+				DC891807192E89C3006FAE71 /* CIFilter+Categories.m */,
 			);
 			name = Filters;
 			sourceTree = "<group>";
@@ -311,7 +297,6 @@
 				DCB0419A1926817D00D945D2 /* Credits.rtf in Resources */,
 				DCB041A01926817D00D945D2 /* MainMenu.xib in Resources */,
 				DCB041E61926CA5E00D945D2 /* SCMainWindowController.xib in Resources */,
-				DC0FB1D2192C1D54001AE827 /* available_filters.cis in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,19 +312,16 @@
 				DC0FB1D0192C14FF001AE827 /* SCRectangleCellView.m in Sources */,
 				DCB042031926F05600D945D2 /* SCFilterView.m in Sources */,
 				DCB0419D1926817D00D945D2 /* SCAppDelegate.m in Sources */,
+				DC891808192E89C3006FAE71 /* CIFilter+Categories.m in Sources */,
 				DCB041E91926CC8D00D945D2 /* SCMainWindow.m in Sources */,
 				DCB04226192ABA2E00D945D2 /* SCPositionCellView.m in Sources */,
 				DCB04220192AB15700D945D2 /* SCAngleCellView.m in Sources */,
 				DCB04212192A7B0C00D945D2 /* SCDistanceCellView.m in Sources */,
-				DCB04229192AC48500D945D2 /* SCFilterCodeGenerator.m in Sources */,
 				DCB041CE1926A8E200D945D2 /* SCFilterTranslator.m in Sources */,
 				DCB04219192A7DCD00D945D2 /* SCFilterParameterConfigurationCellView.m in Sources */,
 				DCB04223192AB3D800D945D2 /* SCResetDefaultsCellView.m in Sources */,
 				DCB041961926817D00D945D2 /* main.m in Sources */,
 				DCB04216192A7C2D00D945D2 /* SCUnsupportedCellView.m in Sources */,
-				DCB0422C192ACD5700D945D2 /* SCFilterParameterConverterManager.m in Sources */,
-				DCB0422F192ACD9000D945D2 /* SCFilterParameterConverter.m in Sources */,
-				DCB041C81926907900D945D2 /* SCFilterDescriptionParser.m in Sources */,
 				DCB0420E192A78F100D945D2 /* SCFilterConfiguratorWindowController.m in Sources */,
 				DCB041EC1926CE0700D945D2 /* SCMediaDisplayerView.m in Sources */,
 			);

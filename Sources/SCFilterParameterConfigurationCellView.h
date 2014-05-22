@@ -13,7 +13,7 @@
 
 @property (weak) IBOutlet NSTextField *titleTextField;
 @property (weak) SCFilter *filter;
-@property (weak) SCFilterParameterDescription *parameter;
+@property (strong, nonatomic) NSString *parameterName;
 @property (strong, nonatomic) id parameterValue;
 
 - (void)rebuild;

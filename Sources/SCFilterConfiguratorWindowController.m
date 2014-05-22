@@ -12,7 +12,10 @@
 #import "NSTableView+Resize.h"
 #import "SCFilterTranslator.h"
 
-@interface SCFilterConfiguratorWindowController ()
+@interface SCFilterConfiguratorWindowController () {
+    NSMutableArray *_parametersInputs;
+}
+
 
 @end
 
@@ -22,6 +25,7 @@
 {
     self = [super initWithWindow:window];
     if (self) {
+
         // Initialization code here.
     }
     return self;
@@ -29,10 +33,13 @@
 
 - (void)windowDidLoad
 {
+    [self adjustTableSize];
     [super windowDidLoad];
 
-    self.window.title = [NSString stringWithFormat:@"%@ Configuration", [SCFilterTranslator filterName:self.filter.filterDescription.name]];
-    [self adjustTableSize];
+    
+    self.window.title = [NSString stringWithFormat:@"%@ Configuration", [CIFilter localizedNameForFilterName:[self.filter.coreImageFilter.attributes objectForKey:kCIAttributeFilterName]]];
+    
+    [self.parametersTableView reloadData];
 }
 
 - (BOOL)selectionShouldChangeInTableView:(NSTableView *)aTableView
@@ -49,16 +56,25 @@
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return _filter.filterDescription.parameters.count + 1;
+    NSMutableArray *inputParameters = [NSMutableArray new];
+    for (NSString *key in self.filter.coreImageFilter.attributes.allKeys) {
+        if ([key hasPrefix:@"input"] && ![key isEqualToString:@"inputImage"]) {
+            [inputParameters addObject:key];
+        }
+    }
+    
+    _parametersInputs = inputParameters;
+    
+    return inputParameters.count + 1;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    SCFilterParameterDescription *parameter = nil;
+    NSString *parameter = nil;
     NSString *type = nil;
     
-    if (row < _filter.filterDescription.parameters.count) {
-        parameter = [_filter.filterDescription.parameters objectAtIndex:row];
-        type = parameter.type;
+    if (row < _parametersInputs.count) {
+        parameter = [_parametersInputs objectAtIndex:row];
+        type = [[self.filter.coreImageFilter.attributes objectForKey:parameter] objectForKey:kCIAttributeType];
     } else {
         type = @"ResetDefaults";
     }
@@ -69,12 +85,12 @@
         cellView = [tableView makeViewWithIdentifier:@"Unsupported" owner:self];
         
         SCUnsupportedCellView *unsupported = (SCUnsupportedCellView *)cellView;
-        unsupported.errorTextField.stringValue = [NSString stringWithFormat:unsupported.errorTextField.stringValue, parameter.type];
+        unsupported.errorTextField.stringValue = [NSString stringWithFormat:unsupported.errorTextField.stringValue, type];
     }
     
     cellView.filter = _filter;
-    cellView.parameter = parameter;
-    cellView.titleTextField.stringValue = [SCFilterTranslator parameterName:parameter.name];
+    cellView.parameterName = parameter;
+    cellView.titleTextField.stringValue = [SCFilterTranslator parameterName:parameter];
     
     [cellView rebuild];
     

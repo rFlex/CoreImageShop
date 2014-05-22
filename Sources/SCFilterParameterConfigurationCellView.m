@@ -28,7 +28,7 @@
 }
 
 - (void)rebuild {
-    if (_parameter != nil) {
+    if (self.parameterName != nil) {
         [self updateWithParameterValue:self.parameterValue];        
     }
 }
@@ -38,13 +38,13 @@
 }
 
 - (void)setParameterValue:(id)parameterValue {
-    [_filter setParameterValue:parameterValue forParameterDescription:_parameter];
+    [_filter setParameterValue:parameterValue forKey:_parameterName];
     
     [self updateWithParameterValue:parameterValue];
 }
 
 - (id)parameterValue {
-    return [_filter.coreImageFilter valueForKey:_parameter.name];
+    return [_filter.coreImageFilter valueForKey:_parameterName];
 }
 
 @end

@@ -8,18 +8,15 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "SCAppDelegate.h"
-#import "SCFilterDescriptionParser.h"
 #import "SCFilterTranslator.h"
 #import "SCMainWindowController.h"
-#import "SCFilterCodeGenerator.h"
-
-#define kFilterDescriptionFileUrlKey @"FilterDescriptionFileUrl"
+#import "CIFilter+Categories.h"
 
 @interface SCAppDelegate() {
-    SCFilterDescriptionList *_filterDescriptions;
     NSMutableArray *_projectVCs;
     NSURL *_filterDescriptionURL;
     SCMainWindowController *_displayedWindow;
+    NSArray *_filters;
 }
 
 @end
@@ -28,16 +25,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    NSString *url = [[NSUserDefaults standardUserDefaults] objectForKey:kFilterDescriptionFileUrlKey];
-    
-    if (url != nil) {
-        [self openFilterDescriptions:[NSURL URLWithString:url]];
-    } else {
-        [self loadEmbeddedFileDescriptionFile:self];
-    }
-    
     _projectVCs = [NSMutableArray new];
-    
+        
     NSString *lastSavedUrl = [[NSUserDefaults standardUserDefaults] objectForKey:kLastSavedFilterFileUrlKey];
     
     NSURL *projectUrl = lastSavedUrl != nil ? [NSURL URLWithString:lastSavedUrl] : nil;
@@ -157,43 +146,7 @@
     }];
 }
 
-- (IBAction)exportCode:(id)sender {
-    if (_displayedWindow != nil) {
-        NSSavePanel *savePen = [NSSavePanel savePanel];
-    
-        NSComboBox *comboBox = [[NSComboBox alloc] init];
-        comboBox.frame = CGRectMake(0, 0, 70, 25);
-        [comboBox addItemWithObjectValue:@"iOS"];
-        [comboBox addItemWithObjectValue:@"OSX"];
-        [comboBox selectItemAtIndex:0];
-        [comboBox sizeToFit];
-        
-        savePen.accessoryView = comboBox;
-        NSArray *filters = _displayedWindow.filters;
-        
-        [savePen beginWithCompletionHandler:^(NSInteger result) {
-            if (result == NSOKButton) {
-                NSURL *url = savePen.URL;
-                
-                NSString *fileName = [url.lastPathComponent stringByDeletingPathExtension];
-                
-                SCFilterCodeGenerator *codeGenerator = [[SCFilterCodeGenerator alloc] init];
-                codeGenerator.filters = filters;
-                
-                if ([comboBox.stringValue isEqualToString:@"OSX"]) {
-                    codeGenerator.outputSystem = FilterCodeGeneratorOutputSystemMac;
-                } else {
-                    codeGenerator.outputSystem = FilterCodeGeneratorOutputSystemIOS;
-                }
-                
-                [codeGenerator generateCode:fileName];
-                [codeGenerator saveTo:url];
-            }
-        }];
-    }
-}
-
-- (void)updateForFilterDescriptions:(SCFilterDescriptionList *)descriptionFilter {
+- (void)updateFilters {
     for (NSMenuItem *menuItem in self.filtersMenu.itemArray) {
         if (menuItem.isSeparatorItem) {
             break;
@@ -201,9 +154,9 @@
         [self.filtersMenu removeItem:menuItem];
     }
     
-    _filterDescriptions = descriptionFilter;
+    NSMutableArray *filters = [NSMutableArray new];
     
-    for (NSString *category in descriptionFilter.allCategories) {
+    for (NSString *category in [CIFilter allCategoryNames]) {
         NSString *categoryTitle = [SCFilterTranslator categoryName:category];
         NSMenuItem *categoryMenuItem = [[NSMenuItem alloc] initWithTitle:categoryTitle action:nil keyEquivalent:@""];
         
@@ -211,21 +164,22 @@
         categoryMenuItem.submenu = menu;
         
         NSUInteger index = 0;
-        for (SCFilterDescription *filter in [descriptionFilter filterDescriptionsForCategory:category]) {
-            NSString *filterName = [SCFilterTranslator filterName:filter.name];
+        for (NSString *filter in [CIFilter filterNamesInCategory:category]) {
+            NSString *filterName = [SCFilterTranslator filterName:filter];
             NSMenuItem *filterItem = [[NSMenuItem alloc] initWithTitle:filterName action:nil keyEquivalent:@""];
             
-            filterItem.tag = filter.filterId;
+            filterItem.tag = filters.count;
             filterItem.target = self;
             filterItem.action = @selector(addFilterFired:);
             
             [menu addItem:filterItem];
+            [filters addObject:filter];
         }
         
         [self.filtersMenu insertItem:categoryMenuItem atIndex:index++];
     }
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kFilterDescriptionsChangedNotification object:descriptionFilter];
+    _filters = filters;
 }
 
 - (NSString *)input: (NSString *)prompt defaultValue: (NSString *)defaultValue {
@@ -266,70 +220,20 @@
 }
 
 - (void)addFilterFired:(NSMenuItem *)item {
-    SCFilterDescription *filterDescription = [_filterDescriptions filterDescriptionForId:item.tag];
+    NSString *filterName = [_filters objectAtIndex:item.tag];
     
-    SCFilter *filter = [SCFilter filterWithFilterDescription:filterDescription];
+    SCFilter *filter = [SCFilter filterWithName:filterName];
     
     if (filter != nil) {
         [_displayedWindow addFilter:filter];
     } else {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to add filter" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Filter %@ not found in system", filterDescription.name];
-        [alert runModal];
-    }
-}
-
-- (void)openFilterDescriptions:(NSURL *)fileUrl {
-    SCFilterDescriptionParser *parser = [[SCFilterDescriptionParser alloc] init];
-    parser.fileUrl = fileUrl;
-    
-    if ([parser parse]) {
-        SCFilterDescriptionList *descriptionFilter = parser.filterDescriptionList;
-
-        [self updateForFilterDescriptions:descriptionFilter];
-        [[NSUserDefaults standardUserDefaults] setObject:fileUrl.absoluteString forKey:kFilterDescriptionFileUrlKey];
-        
-        _filterDescriptionURL = fileUrl;
-    } else {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Failed to open filter descriptions file" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Error: %@", parser.error.localizedDescription];
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to add filter" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Filter %@ not found in system", filterName];
         [alert runModal];
     }
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
     return _projectVCs.count == 0;
-}
-
-- (IBAction)changeFilterDescriptionFile:(id)sender {
-    NSOpenPanel *open = [NSOpenPanel openPanel];
-    
-    open.canChooseDirectories = NO;
-    open.allowedFileTypes = @[@"cis"];
-    open.allowsMultipleSelection = NO;
-    
-    if (_filterDescriptionURL != nil) {
-        open.directoryURL = _filterDescriptionURL;
-    }
-    
-    [open beginWithCompletionHandler:^(NSInteger result) {
-        if (result == NSFileHandlingPanelOKButton) {
-            NSURL *url = open.URL;
-            [self openFilterDescriptions:url];
-        }
-    }];
-}
-
-- (IBAction)reloadFileDescriptionFile:(id)sender {
-    if (_filterDescriptionURL != nil) {
-        [self openFilterDescriptions:_filterDescriptionURL];        
-    }
-}
-
-- (IBAction)loadEmbeddedFileDescriptionFile:(id)sender {
-    [self openFilterDescriptions:[[NSBundle mainBundle] URLForResource:@"available_filters" withExtension:@"cis"]];
-}
-
-- (SCFilterDescriptionList *)filterDescriptions {
-    return _filterDescriptions;
 }
 
 + (SCAppDelegate *)sharedInstance {

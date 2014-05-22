@@ -56,8 +56,10 @@
 - (void)rebuild {
     [super rebuild];
     
-    CIVector *minValue = (CIVector *)self.parameter.minValue;
-    CIVector *maxValue = (CIVector *)self.parameter.maxValue;
+//    CIVector *minValue = (CIVector *)self.parameter.minValue;
+//    CIVector *maxValue = (CIVector *)self.parameter.maxValue;
+    CIVector *minValue = [CIVector vectorWithX:0 Y:0 Z:0 W:0];
+    CIVector *maxValue = [CIVector vectorWithX:1 Y:1 Z:1 W:1];
     
     self.value1.minValue = minValue.X;
     self.value1.maxValue = maxValue.X;

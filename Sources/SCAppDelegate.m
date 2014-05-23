@@ -88,29 +88,30 @@
 - (void)openProject:(NSURL *)url {
     NSData *data = nil;
     
+    SCMainWindowController *mainViewController = [[SCMainWindowController alloc] initWithWindowNibName:@"SCMainWindowController"];
+    [_projectVCs addObject:mainViewController];
+    mainViewController.window.delegate = self;
+    
     if (url != nil) {
         NSError *error = nil;
         data = [NSData dataWithContentsOfURL:url options:NSDataReadingMapped error:&error];
         
         if (error != nil) {
+            url = nil;
             NSAlert *alert = [NSAlert alertWithError:error];
             [alert runModal];
-            return;
         }
     }
-    
-    SCMainWindowController *mainViewController = [[SCMainWindowController alloc] initWithWindowNibName:@"SCMainWindowController"];
-    mainViewController.window.delegate = self;
     
     if (data != nil) {
         [mainViewController applyDocument:data];
     }
+    
     if (url != nil) {
         mainViewController.fileUrl = url;
     }
     
     [mainViewController showWindow:nil];
-    [_projectVCs addObject:mainViewController];
 }
 
 - (void)closeWindow:(SCMainWindowController *)windowVC {

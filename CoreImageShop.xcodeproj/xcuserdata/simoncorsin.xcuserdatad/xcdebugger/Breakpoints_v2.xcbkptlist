@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sources/SCMediaDisplayerView.m"
-            timestampString = "422321203.354509"
+            timestampString = "422496948.549237"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "-drawRect:"
             landmarkType = "5">
          </BreakpointContent>

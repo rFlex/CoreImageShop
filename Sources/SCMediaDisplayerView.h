@@ -11,6 +11,7 @@
 
 #define kMediaDisplayerClickNotification @"MediaDisplayerClicked"
 #define kMediaDisplayerClickLocationKey @"MediaDisplayerClickLocation"
+#define kMediaDisplayerLastMediaUrlKey @"MediaDisplayerLastMediaUrl"
 
 @interface SCMediaDisplayerView : NSView
 

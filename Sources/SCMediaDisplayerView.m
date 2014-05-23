@@ -52,6 +52,7 @@
         _playButton.action = @selector(playPressed:);
         
         [self updateSubviews];
+        [self restoreMedia];
     }
     
     return self;
@@ -146,6 +147,19 @@
     }
 }
 
+- (void)saveMedia {
+    [[NSUserDefaults standardUserDefaults] setObject:_mediaUrl.absoluteString forKey:kMediaDisplayerLastMediaUrlKey];
+}
+
+- (void)restoreMedia {
+    NSString *absolutePath = [[NSUserDefaults standardUserDefaults] objectForKey:kMediaDisplayerLastMediaUrlKey];
+    
+    if (absolutePath != nil) {
+        self.mediaUrl = [NSURL URLWithString:absolutePath];
+    }
+    
+}
+
 - (void)setMediaUrl:(NSURL *)mediaUrl {
     _mediaUrl = mediaUrl;
     AVAsset *asset = [AVURLAsset URLAssetWithURL:mediaUrl options:nil];
@@ -153,6 +167,7 @@
         _imageView.image = nil;
         [_player replaceCurrentItemWithPlayerItem:[AVPlayerItem playerItemWithAsset:asset]];
         [_player play];
+        [self saveMedia];
     } else {
         [_player replaceCurrentItemWithPlayerItem:nil];
         NSImage *image = [[NSImage alloc] initWithContentsOfURL:mediaUrl];
@@ -160,6 +175,7 @@
         if (image != nil) {
             _imageView.image = image;
             [self display];
+            [self saveMedia];
         } else {
             NSAlert *alert = [NSAlert alertWithMessageText:@"Invalid file" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Only video or images are accepted"];
             [alert runModal];

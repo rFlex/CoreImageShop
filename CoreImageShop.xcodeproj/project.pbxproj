@@ -10,8 +10,8 @@
 		DC0FB1D0192C14FF001AE827 /* SCRectangleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */; };
 		DC4506A3192C44E700993EC7 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4506A2192C44E700993EC7 /* Quartz.framework */; };
 		DC891808192E89C3006FAE71 /* CIFilter+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = DC891807192E89C3006FAE71 /* CIFilter+Categories.m */; };
-		DC891815192EAA39006FAE71 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC891814192EAA39006FAE71 /* SCRecorderMac.framework */; };
-		DC891816192EAA3C006FAE71 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC891814192EAA39006FAE71 /* SCRecorderMac.framework */; };
+		DC891819192EC682006FAE71 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC891818192EC682006FAE71 /* SCRecorderMac.framework */; };
+		DC89181A192EC686006FAE71 /* SCRecorderMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = DC891818192EC682006FAE71 /* SCRecorderMac.framework */; };
 		DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB041891926817D00D945D2 /* Cocoa.framework */; };
 		DCB041941926817D00D945D2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCB041921926817D00D945D2 /* InfoPlist.strings */; };
 		DCB041961926817D00D945D2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB041951926817D00D945D2 /* main.m */; };
@@ -46,7 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DC891816192EAA3C006FAE71 /* SCRecorderMac.framework in CopyFiles */,
+				DC89181A192EC686006FAE71 /* SCRecorderMac.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,7 @@
 		DC4506A2192C44E700993EC7 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		DC891806192E89C3006FAE71 /* CIFilter+Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CIFilter+Categories.h"; sourceTree = "<group>"; };
 		DC891807192E89C3006FAE71 /* CIFilter+Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CIFilter+Categories.m"; sourceTree = "<group>"; };
-		DC891814192EAA39006FAE71 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
+		DC891818192EC682006FAE71 /* SCRecorderMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCRecorderMac.framework; sourceTree = "<group>"; };
 		DCB041861926817D00D945D2 /* CoreImageShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB041891926817D00D945D2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DCB0418C1926817D00D945D2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -114,7 +114,7 @@
 			files = (
 				DC4506A3192C44E700993EC7 /* Quartz.framework in Frameworks */,
 				DCB041FE1926D1D500D945D2 /* GLKit.framework in Frameworks */,
-				DC891815192EAA39006FAE71 /* SCRecorderMac.framework in Frameworks */,
+				DC891819192EC682006FAE71 /* SCRecorderMac.framework in Frameworks */,
 				DCB041D61926C6F700D945D2 /* QuartzCore.framework in Frameworks */,
 				DCB041CB1926A3D800D945D2 /* AVFoundation.framework in Frameworks */,
 				DCB0418A1926817D00D945D2 /* Cocoa.framework in Frameworks */,
@@ -127,7 +127,7 @@
 		DCB0417D1926817D00D945D2 = {
 			isa = PBXGroup;
 			children = (
-				DC891814192EAA39006FAE71 /* SCRecorderMac.framework */,
+				DC891818192EC682006FAE71 /* SCRecorderMac.framework */,
 				DCB0418F1926817D00D945D2 /* Sources */,
 				DCB041881926817D00D945D2 /* Frameworks */,
 				DCB041871926817D00D945D2 /* Products */,

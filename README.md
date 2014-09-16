@@ -1,6 +1,8 @@
 Core Image Shop
 ===============
 
+![](screenshot.png)
+
 Mac app that let you create a Core Image Filter and generate the underlying Objective-C code easily.
 
 Compiled app available on https://s3.amazonaws.com/ever-hosting/CoreImageShop.zip (Mac OSX 10.9 64 bits)

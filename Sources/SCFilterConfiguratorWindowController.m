@@ -35,7 +35,6 @@
 {
     [self adjustTableSize];
     [super windowDidLoad];
-
     
     self.window.title = [NSString stringWithFormat:@"%@ Configuration", [CIFilter localizedNameForFilterName:[self.filter.coreImageFilter.attributes objectForKey:kCIAttributeFilterName]]];
     
@@ -74,7 +73,13 @@
     
     if (row < _parametersInputs.count) {
         parameter = [_parametersInputs objectAtIndex:row];
-        type = [[self.filter.coreImageFilter.attributes objectForKey:parameter] objectForKey:kCIAttributeType];
+        NSDictionary *filter = [self.filter.coreImageFilter.attributes objectForKey:parameter];
+        type = [filter objectForKey:kCIAttributeType];
+        
+        if (type == nil) {
+            type = [filter objectForKey:kCIAttributeClass];
+        }
+        
     } else {
         type = @"ResetDefaults";
     }
@@ -85,6 +90,8 @@
         cellView = [tableView makeViewWithIdentifier:@"Unsupported" owner:self];
         
         SCUnsupportedCellView *unsupported = (SCUnsupportedCellView *)cellView;
+        NSDictionary *filter = [self.filter.coreImageFilter.attributes objectForKey:parameter];
+        NSLog(@"Type: %@", [filter objectForKey:kCIAttributeClass]);
         unsupported.errorTextField.stringValue = [NSString stringWithFormat:unsupported.errorTextField.stringValue, type];
     }
     

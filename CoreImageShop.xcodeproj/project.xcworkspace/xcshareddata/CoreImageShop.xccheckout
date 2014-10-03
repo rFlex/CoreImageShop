@@ -10,29 +10,29 @@
 	<string>CoreImageShop</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>D16DBFDC-1996-48F0-9F0F-7FFD05329D79</key>
+		<key>D10B718BE8416E4426AA31B2E3118BC3F114F9E3</key>
 		<string>ssh://github.com/rFlex/CoreImageShop.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CoreImageShop.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>D16DBFDC-1996-48F0-9F0F-7FFD05329D79</key>
+		<key>D10B718BE8416E4426AA31B2E3118BC3F114F9E3</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/rFlex/CoreImageShop.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>D16DBFDC-1996-48F0-9F0F-7FFD05329D79</string>
+	<string>D10B718BE8416E4426AA31B2E3118BC3F114F9E3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>D16DBFDC-1996-48F0-9F0F-7FFD05329D79</string>
+			<string>D10B718BE8416E4426AA31B2E3118BC3F114F9E3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CoreImageShop</string>
 		</dict>

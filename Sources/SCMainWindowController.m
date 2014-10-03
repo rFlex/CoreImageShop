@@ -114,6 +114,7 @@
     if (theConfigurator == nil) {
         theConfigurator = [[SCFilterConfiguratorWindowController alloc] initWithWindowNibName:@"SCFilterConfiguratorWindowController"];
         theConfigurator.filter = filter;
+        
         theConfigurator.window.delegate = self;
         
         [_currentlyDisplayedVC addObject:theConfigurator];

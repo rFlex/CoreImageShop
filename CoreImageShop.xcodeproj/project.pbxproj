@@ -37,6 +37,8 @@
 		DCB04220192AB15700D945D2 /* SCAngleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB0421F192AB15700D945D2 /* SCAngleCellView.m */; };
 		DCB04223192AB3D800D945D2 /* SCResetDefaultsCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB04222192AB3D800D945D2 /* SCResetDefaultsCellView.m */; };
 		DCB04226192ABA2E00D945D2 /* SCPositionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB04225192ABA2E00D945D2 /* SCPositionCellView.m */; };
+		DCBF83D419DE1FF9006547EE /* SCVectorCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBF83D319DE1FF9006547EE /* SCVectorCellView.m */; };
+		DCFE4A7019DF0F59004602EF /* SCConfigurationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFE4A6F19DF0F59004602EF /* SCConfigurationTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -105,6 +107,10 @@
 		DCB04222192AB3D800D945D2 /* SCResetDefaultsCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCResetDefaultsCellView.m; sourceTree = "<group>"; };
 		DCB04224192ABA2E00D945D2 /* SCPositionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCPositionCellView.h; sourceTree = "<group>"; };
 		DCB04225192ABA2E00D945D2 /* SCPositionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCPositionCellView.m; sourceTree = "<group>"; };
+		DCBF83D219DE1FF9006547EE /* SCVectorCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCVectorCellView.h; sourceTree = "<group>"; };
+		DCBF83D319DE1FF9006547EE /* SCVectorCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCVectorCellView.m; sourceTree = "<group>"; };
+		DCFE4A6E19DF0F59004602EF /* SCConfigurationTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConfigurationTableView.h; sourceTree = "<group>"; };
+		DCFE4A6F19DF0F59004602EF /* SCConfigurationTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCConfigurationTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +240,10 @@
 				DCB04225192ABA2E00D945D2 /* SCPositionCellView.m */,
 				DC0FB1CE192C14FF001AE827 /* SCRectangleCellView.h */,
 				DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */,
+				DCBF83D219DE1FF9006547EE /* SCVectorCellView.h */,
+				DCBF83D319DE1FF9006547EE /* SCVectorCellView.m */,
+				DCFE4A6E19DF0F59004602EF /* SCConfigurationTableView.h */,
+				DCFE4A6F19DF0F59004602EF /* SCConfigurationTableView.m */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -313,11 +323,13 @@
 				DCB042031926F05600D945D2 /* SCFilterView.m in Sources */,
 				DCB0419D1926817D00D945D2 /* SCAppDelegate.m in Sources */,
 				DC891808192E89C3006FAE71 /* CIFilter+Categories.m in Sources */,
+				DCFE4A7019DF0F59004602EF /* SCConfigurationTableView.m in Sources */,
 				DCB041E91926CC8D00D945D2 /* SCMainWindow.m in Sources */,
 				DCB04226192ABA2E00D945D2 /* SCPositionCellView.m in Sources */,
 				DCB04220192AB15700D945D2 /* SCAngleCellView.m in Sources */,
 				DCB04212192A7B0C00D945D2 /* SCDistanceCellView.m in Sources */,
 				DCB041CE1926A8E200D945D2 /* SCFilterTranslator.m in Sources */,
+				DCBF83D419DE1FF9006547EE /* SCVectorCellView.m in Sources */,
 				DCB04219192A7DCD00D945D2 /* SCFilterParameterConfigurationCellView.m in Sources */,
 				DCB04223192AB3D800D945D2 /* SCResetDefaultsCellView.m in Sources */,
 				DCB041961926817D00D945D2 /* main.m in Sources */,

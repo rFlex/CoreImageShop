@@ -39,6 +39,8 @@
 		DCB04226192ABA2E00D945D2 /* SCPositionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB04225192ABA2E00D945D2 /* SCPositionCellView.m */; };
 		DCBF83D419DE1FF9006547EE /* SCVectorCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCBF83D319DE1FF9006547EE /* SCVectorCellView.m */; };
 		DCFE4A7019DF0F59004602EF /* SCConfigurationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFE4A6F19DF0F59004602EF /* SCConfigurationTableView.m */; };
+		DCFE4A7319DF10DD004602EF /* SCImageCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFE4A7219DF10DD004602EF /* SCImageCellView.m */; };
+		DCFE4A7619DF1B4D004602EF /* SCDataCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFE4A7519DF1B4D004602EF /* SCDataCellView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +113,10 @@
 		DCBF83D319DE1FF9006547EE /* SCVectorCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCVectorCellView.m; sourceTree = "<group>"; };
 		DCFE4A6E19DF0F59004602EF /* SCConfigurationTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConfigurationTableView.h; sourceTree = "<group>"; };
 		DCFE4A6F19DF0F59004602EF /* SCConfigurationTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCConfigurationTableView.m; sourceTree = "<group>"; };
+		DCFE4A7119DF10DD004602EF /* SCImageCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCImageCellView.h; sourceTree = "<group>"; };
+		DCFE4A7219DF10DD004602EF /* SCImageCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCImageCellView.m; sourceTree = "<group>"; };
+		DCFE4A7419DF1B4D004602EF /* SCDataCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCDataCellView.h; sourceTree = "<group>"; };
+		DCFE4A7519DF1B4D004602EF /* SCDataCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCDataCellView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +229,8 @@
 		DCB04213192A7B0F00D945D2 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
+				DCFE4A6E19DF0F59004602EF /* SCConfigurationTableView.h */,
+				DCFE4A6F19DF0F59004602EF /* SCConfigurationTableView.m */,
 				DCB0420B192A78F100D945D2 /* SCFilterConfiguratorWindowController.h */,
 				DCB0420C192A78F100D945D2 /* SCFilterConfiguratorWindowController.m */,
 				DCB0420D192A78F100D945D2 /* SCFilterConfiguratorWindowController.xib */,
@@ -242,8 +250,10 @@
 				DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */,
 				DCBF83D219DE1FF9006547EE /* SCVectorCellView.h */,
 				DCBF83D319DE1FF9006547EE /* SCVectorCellView.m */,
-				DCFE4A6E19DF0F59004602EF /* SCConfigurationTableView.h */,
-				DCFE4A6F19DF0F59004602EF /* SCConfigurationTableView.m */,
+				DCFE4A7119DF10DD004602EF /* SCImageCellView.h */,
+				DCFE4A7219DF10DD004602EF /* SCImageCellView.m */,
+				DCFE4A7419DF1B4D004602EF /* SCDataCellView.h */,
+				DCFE4A7519DF1B4D004602EF /* SCDataCellView.m */,
 			);
 			name = Configurations;
 			sourceTree = "<group>";
@@ -325,6 +335,7 @@
 				DC891808192E89C3006FAE71 /* CIFilter+Categories.m in Sources */,
 				DCFE4A7019DF0F59004602EF /* SCConfigurationTableView.m in Sources */,
 				DCB041E91926CC8D00D945D2 /* SCMainWindow.m in Sources */,
+				DCFE4A7319DF10DD004602EF /* SCImageCellView.m in Sources */,
 				DCB04226192ABA2E00D945D2 /* SCPositionCellView.m in Sources */,
 				DCB04220192AB15700D945D2 /* SCAngleCellView.m in Sources */,
 				DCB04212192A7B0C00D945D2 /* SCDistanceCellView.m in Sources */,
@@ -334,6 +345,7 @@
 				DCB04223192AB3D800D945D2 /* SCResetDefaultsCellView.m in Sources */,
 				DCB041961926817D00D945D2 /* main.m in Sources */,
 				DCB04216192A7C2D00D945D2 /* SCUnsupportedCellView.m in Sources */,
+				DCFE4A7619DF1B4D004602EF /* SCDataCellView.m in Sources */,
 				DCB0420E192A78F100D945D2 /* SCFilterConfiguratorWindowController.m in Sources */,
 				DCB041EC1926CE0700D945D2 /* SCMediaDisplayerView.m in Sources */,
 			);

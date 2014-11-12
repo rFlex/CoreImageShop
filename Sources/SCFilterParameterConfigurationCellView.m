@@ -44,7 +44,7 @@
 }
 
 - (id)parameterValue {
-    return [_filter.coreImageFilter valueForKey:_parameterName];
+    return [_filter parameterValueForKey:_parameterName];
 }
 
 @end

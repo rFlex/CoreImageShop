@@ -8,8 +8,6 @@
 
 #import "SCFilterParameterConfigurationCellView.h"
 
-#define kCubeDimensionSize 64
-
 @interface SCDataCellView : SCFilterParameterConfigurationCellView
 
 @property (weak) IBOutlet NSTextField *urlTextField;

@@ -185,10 +185,25 @@
     [self updatePlayButton];
 }
 
-- (void)setFilterGroup:(SCFilterGroup *)filterGroup {
-    _filterGroup = filterGroup;
++ (void)appendCIFilters:(SCFilter *)filter toArray:(NSMutableArray *)array {
+    if (filter.enabled) {
+        if (filter.CIFilter != nil) {
+            [array addObject:filter.CIFilter];
+        }
+        
+        for (SCFilter *subFilter in filter.subFilters) {
+            [SCMediaDisplayerView appendCIFilters:subFilter toArray:array];
+        }
+    }
+}
+
+- (void)setFilter:(SCFilter *)filter {
+    _filter = filter;
     
-    [self.layer setFilters:filterGroup.coreImageFilters];
+    NSMutableArray *coreImageFilters = [NSMutableArray new];
+    [SCMediaDisplayerView appendCIFilters:filter toArray:coreImageFilters];
+    
+    [self.layer setFilters:coreImageFilters];
 }
 
 @end

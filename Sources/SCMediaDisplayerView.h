@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <SCRecorderMac/SCFilterGroup.h>
+#import <SCRecorderMac/SCFilter.h>
 
 #define kMediaDisplayerClickNotification @"MediaDisplayerClicked"
 #define kMediaDisplayerClickLocationKey @"MediaDisplayerClickLocation"
@@ -17,6 +17,6 @@
 
 @property (strong, nonatomic) NSURL *mediaUrl;
 @property (readonly, nonatomic) NSError *error;
-@property (strong, nonatomic) SCFilterGroup *filterGroup;
+@property (strong, nonatomic) SCFilter *filter;
 
 @end

@@ -39,7 +39,7 @@
 - (void)rebuild {
     [super rebuild];
     
-    NSDictionary *value = [self.filter.coreImageFilter.attributes  objectForKey:self.parameterName];
+    NSDictionary *value = [self.filter.CIFilter.attributes  objectForKey:self.parameterName];
     
     self.valueSlider.minValue = ((NSNumber *)[value objectForKey:kCIAttributeSliderMin]).doubleValue;
     self.valueSlider.maxValue = ((NSNumber *)[value objectForKey:kCIAttributeSliderMax]).doubleValue;

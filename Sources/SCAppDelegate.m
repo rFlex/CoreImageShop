@@ -60,7 +60,7 @@
 
 - (void)save:(SCMainWindowController *)displayedWindow to:(NSURL *)url {
     NSError *error = nil;
-    [displayedWindow.filterGroup writeToFile:url error:&error];
+    [displayedWindow.filter writeToFile:url error:&error];
     
     if (error == nil) {
         displayedWindow.fileUrl = url;
@@ -212,10 +212,10 @@
 }
 
 - (IBAction)editName:(id)sender {
-    NSString *entered = [self input:@"Enter the filter name" defaultValue:_displayedWindow.filterGroup.name];
+    NSString *entered = [self input:@"Enter the filter name" defaultValue:_displayedWindow.filter.name];
     
     if (entered != nil) {
-        _displayedWindow.filterGroup.name = entered;
+        _displayedWindow.filter.name = entered;
         [_displayedWindow updateTitle];
     }
 }
@@ -223,7 +223,7 @@
 - (void)addFilterFired:(NSMenuItem *)item {
     NSString *filterName = [_filters objectAtIndex:item.tag];
     
-    SCFilter *filter = [SCFilter filterWithName:filterName];
+    SCFilter *filter = [SCFilter filterWithCIFilterName:filterName];
     
     if (filter != nil) {
         [_displayedWindow addFilter:filter];

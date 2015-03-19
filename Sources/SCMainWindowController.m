@@ -27,7 +27,7 @@
 {
     self = [super initWithWindow:window];
     if (self) {
-        _filterGroup = [[SCFilterGroup alloc] init];
+        _filter = [SCFilter emptyFilter];
         _currentlyDisplayedVC = [NSMutableArray new];
         
         NSMutableArray *availableFilters = [NSMutableArray new];
@@ -55,9 +55,9 @@
     filter.delegate = self;
     [self.filtersTableView beginUpdates];
     
-    [self.filtersTableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:_filterGroup.filters.count] withAnimation:NSTableViewAnimationSlideUp];
+    [self.filtersTableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:_filter.subFilters.count] withAnimation:NSTableViewAnimationSlideUp];
     
-    [_filterGroup addFilter:filter];
+    [_filter addSubFilter:filter];
     [self rebuildFilterPipeline];
     
     [self.filtersTableView endUpdates];
@@ -69,7 +69,7 @@
         [_currentlyDisplayedVC removeObject:configurator];
     }
     
-    [_filterGroup removeFilter:filter];
+    [_filter removeSubFilter:filter];
     [self rebuildFilterPipeline];
 }
 
@@ -88,7 +88,7 @@
 }
 
 - (SCFilter *)filterForIndex:(NSInteger)index {
-    return [_filterGroup.filters objectAtIndex:index];
+    return [_filter.subFilters objectAtIndex:index];
 }
 
 - (void)windowWillClose:(NSNotification *)notification {
@@ -141,20 +141,20 @@
 }
 
 - (void)updateTitle {
-    self.window.title = [NSString stringWithFormat:@"%@ - %@", _filterGroup.name, _fileUrl.lastPathComponent];
+    self.window.title = [NSString stringWithFormat:@"%@ - %@", _filter.name, _fileUrl.lastPathComponent];
 }
 
 - (void)applyDocument:(NSData *)data {
     NSError *error = nil;
     
-    SCFilterGroup *filterGroup = [SCFilterGroup filterGroupWithData:data error:&error];
+    SCFilter *filterGroup = [SCFilter filterWithData:data error:&error];
     
     if (error == nil) {
-        for (SCFilter *filter in filterGroup.filters) {
+        for (SCFilter *filter in filterGroup.subFilters) {
             filter.delegate = self;
         }
         
-        _filterGroup = filterGroup;
+        _filter = filterGroup;
         [self.filtersTableView reloadData];
         [self rebuildFilterPipeline];
     } else {
@@ -171,7 +171,7 @@
 }
 
 - (void)rebuildFilterPipeline {
-    self.mediaDisplayerView.filterGroup = _filterGroup;
+    self.mediaDisplayerView.filter = _filter;
 }
 
 - (IBAction)deleteActivated:(NSButton *)sender {
@@ -180,7 +180,7 @@
     [self.filtersTableView beginUpdates];
     
     [self.filtersTableView removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:index] withAnimation:NSTableViewAnimationEffectFade];
-    [_filterGroup removeFilterAtIndex:index];
+    [_filter removeSubFilterAtIndex:index];
     [self rebuildFilterPipeline];
     
     [self.filtersTableView endUpdates];
@@ -188,14 +188,14 @@
 
 - (IBAction)addActivated:(id)sender {
     NSInteger index = [self.availableFiltersTableView rowForView:sender];
-    NSString *filter = [_availableFilters objectAtIndex:index];
+    NSString *filterName = [_availableFilters objectAtIndex:index];
     
-    [self addFilter:[SCFilter filterWithName:filter]];
+    [self addFilter:[SCFilter filterWithCIFilterName:filterName]];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     if (tableView == self.filtersTableView) {
-        return _filterGroup.filters.count;
+        return _filter.subFilters.count;
     } else {
         return _availableFilters.count;
     }
@@ -204,9 +204,9 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     if (tableView == self.filtersTableView) {
         SCFilterView *filterView = [tableView makeViewWithIdentifier:@"SCFilterView" owner:self];
-        SCFilter *filter = [_filterGroup.filters objectAtIndex:row];
+        SCFilter *filter = [_filter.subFilters objectAtIndex:row];
         
-        filterView.title.stringValue = [filter.coreImageFilter.attributes objectForKey:kCIAttributeFilterDisplayName];
+        filterView.title.stringValue = [filter.CIFilter.attributes objectForKey:kCIAttributeFilterDisplayName];
         filterView.enabledCheckbox.state = (NSInteger)filter.enabled;
         
         return filterView;
@@ -232,7 +232,7 @@
 }
 
 - (NSArray *)filters {
-    return _filterGroup.filters;
+    return _filter.subFilters;
 }
 
 @end

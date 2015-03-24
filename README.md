@@ -14,7 +14,7 @@ How does it work?
 - Add your filters in the filter menu
 - Configure your Core Image Filters like you want them
 - Save the project into a cisf file
-- Import the project in the SCRecorder on one of the relevant classes (SCAssetExportSession or SCPlayer) using
+- Import the project in the SCRecorder on one of the relevant classes (SCAssetExportSession or SCVideoConfiguration) using
 
-  relevantClassInstance.filterGroup = [SCFilterGroup filterGroupWithContentsOfURL:urlToYourProject];
+  relevantClassInstance.filter = [SCFilter filterWithContentsOfURL:urlToYourProject];
 

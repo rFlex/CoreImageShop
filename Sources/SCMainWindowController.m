@@ -13,6 +13,7 @@
 #import "SCFilterTranslator.h"
 #import "SCAppDelegate.h"
 #import "CIFilter+Categories.h"
+#import "SCFilterGroup.h"
 
 @interface SCMainWindowController () {
     NSMutableArray *_currentlyDisplayedVC;
@@ -146,15 +147,42 @@
 
 - (void)applyDocument:(NSData *)data {
     NSError *error = nil;
-    
-    SCFilter *filterGroup = [SCFilter filterWithData:data error:&error];
-    
-    if (error == nil) {
-        for (SCFilter *filter in filterGroup.subFilters) {
-            filter.delegate = self;
+
+    SCFilter *filter = nil;
+    id obj = nil;
+    @try {
+        obj = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+
+        if ([obj isKindOfClass:[SCFilterGroup class]]) {
+            NSLog(@"Found an old version of SCFilter. Converting to new format.");
+            SCFilterGroup *filterGroup = obj;
+            filter = [SCFilter emptyFilter];
+            filter.name = filterGroup.name;
+
+            for (SCFilter *subFilter in filterGroup.filters) {
+                [filter addSubFilter:subFilter];
+            }
+        } else if ([obj isKindOfClass:[SCFilter class]]) {
+            filter = obj;
+        }
+
+        if (filter == nil) {
+            error = [NSError errorWithDomain:@"FilterDomain" code:200 userInfo:@{
+                                                                                 NSLocalizedDescriptionKey : @"Invalid serialized class type"
+                                                                                 }];
+        }
+    } @catch (NSException *exception) {
+        error = [NSError errorWithDomain:@"SCFilterGroup" code:200 userInfo:@{
+                                                                              NSLocalizedDescriptionKey : exception.reason
+                                                                              }];
+    }
+
+    if (error == nil && filter != nil) {
+        for (SCFilter *subFilter in filter.subFilters) {
+            subFilter.delegate = self;
         }
         
-        _filter = filterGroup;
+        _filter = filter;
         [self.filtersTableView reloadData];
         [self rebuildFilterPipeline];
     } else {

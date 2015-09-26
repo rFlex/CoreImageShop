@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9085DA161BB7354E003BE702 /* SCFilterGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 9085DA151BB7354E003BE702 /* SCFilterGroup.m */; settings = {ASSET_TAGS = (); }; };
 		DC0FB1D0192C14FF001AE827 /* SCRectangleCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */; };
 		DC4506A3192C44E700993EC7 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4506A2192C44E700993EC7 /* Quartz.framework */; };
 		DC4AA9871A13FBDC00F559A8 /* SCRecorderMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4AA9861A13FBDC00F559A8 /* SCRecorderMac.framework */; };
@@ -57,6 +58,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9085DA141BB7354E003BE702 /* SCFilterGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFilterGroup.h; sourceTree = "<group>"; };
+		9085DA151BB7354E003BE702 /* SCFilterGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFilterGroup.m; sourceTree = "<group>"; };
 		DC0FB1CE192C14FF001AE827 /* SCRectangleCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCRectangleCellView.h; sourceTree = "<group>"; };
 		DC0FB1CF192C14FF001AE827 /* SCRectangleCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCRectangleCellView.m; sourceTree = "<group>"; };
 		DC4506A2192C44E700993EC7 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
@@ -218,6 +221,8 @@
 		DCB041C91926A3C000D945D2 /* Filters */ = {
 			isa = PBXGroup;
 			children = (
+				9085DA141BB7354E003BE702 /* SCFilterGroup.h */,
+				9085DA151BB7354E003BE702 /* SCFilterGroup.m */,
 				DCB041CC1926A8E200D945D2 /* SCFilterTranslator.h */,
 				DCB041CD1926A8E200D945D2 /* SCFilterTranslator.m */,
 				DC891806192E89C3006FAE71 /* CIFilter+Categories.h */,
@@ -348,6 +353,7 @@
 				DCFE4A7619DF1B4D004602EF /* SCDataCellView.m in Sources */,
 				DCB0420E192A78F100D945D2 /* SCFilterConfiguratorWindowController.m in Sources */,
 				DCB041EC1926CE0700D945D2 /* SCMediaDisplayerView.m in Sources */,
+				9085DA161BB7354E003BE702 /* SCFilterGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
